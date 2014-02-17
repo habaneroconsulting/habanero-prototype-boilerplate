@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <!-- 
+             The commented <html> tags above have classes on them that allow you to focus on specific
+             versions of Internet Explorer. For example, if you wanted to style IE7 differently than
+             the rest, you could write a CSS selector like: .lt-ie7 * { }. This would only target IE7
+        -->
+
+        <!-- Force Internet Explorer to use the latest version -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- Title of window or tab -->
+        <title>Habanero HTML Prototype</title>
+
+        <!-- This viewport line specifies that a mobile device should try to render a site at it's 
+             natural resolution, instead of using a desktop resolution and scaling down. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Example TypeKit embed code below -->
+        <!--
+        <script type="text/javascript" src="//use.typekit.net/YOUR-CODE-HERE.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        -->
+
+        <!--
+            This next comment is for our build system. It automatically converts LESS files to CSS
+            and combines our CSS for production systems.
+        -->
+
+        <!-- build:css(.tmp/less) styles/styles.min.css -->
+            <!-- Normalize.css helps standardize the default CSS across multiple browsers. -->
+            <link rel="stylesheet" href="styles/vendor/normalize.css">
+
+            <!-- Contains our responsive grid elements. By default, 24 columns. -->
+            <link rel="stylesheet" href="styles/vendor/responsive-gs-24col.css">
+            <!-- <link rel="stylesheet" href="styles/vendor/responsive-gs-12col.css"> -->
+            
+            <!-- This contains contains various best CSS practices. -->
+            <link rel="stylesheet" href="styles/vendor/h5boilerplate.css">
+
+            <!-- Main.css is where all of your styling will go. -->
+            <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+        <!-- Modernizr is a script that helps developers determine which features are available to a user,
+             such as touch, or CSS3 features like gradients and text-shadow. -->
+        <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body class="">
+
+        <!-- Sample content -->
+
+        <div class="container">
+
+            
+            <header>
+                <a href="/" class="logo"></a>
+
+                <nav>
+                    <ul class="navigation">
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <footer>
+                
+            </footer>
+
+        </div>
+
+        <!-- End of content -->
+
+        <!-- 
+             JavaScript is added to the bottom of the page for performance reasons.
+             Only Modernizr is used at the top since it is required for the styling of a page.
+        -->
+    
+        <!-- Add the latest version of jQuery to the page -->
+        <script src="scripts/vendor/jquery-1.11.0.min.js"></script>
+
+        <!-- Where your JavaScript goes -->        
+        <!-- build:js scripts/main.min.js -->
+            <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>
