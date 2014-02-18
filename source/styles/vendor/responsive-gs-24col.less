@@ -17,6 +17,12 @@
 }
 
 /* SELF CLEARING FLOATS - CLEARFIX METHOD */
+.container,
+.row,
+.col {
+    zoom: 1; 
+}
+
 .container:after,
 .row:after,
 .col:after {
@@ -37,7 +43,7 @@
     width: 100%;
 }
 
-@media (min-width: 768px) {
+.columns() {
     .col {
         margin-left: @gutter / @container * 100%;
 
@@ -118,4 +124,12 @@
     .push_21:first-child { margin-left: (@column * 21 + @gutter * 21) / @container * 100%; }
     .push_22:first-child { margin-left: (@column * 22 + @gutter * 22) / @container * 100%; }
     .push_23:first-child { margin-left: (@column * 23 + @gutter * 23) / @container * 100%; }
+}
+
+.lt-ie9 {
+    .columns();
+}
+
+@media (min-width: 768px) {
+    .columns();
 }
