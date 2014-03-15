@@ -1,58 +1,37 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Habanero HTML Prototype</title>
-        
-    <!-- build:css(.tmp/less) styles/styles.min.css -->
-        <link rel="stylesheet" href="styles/vendor/normalize.css">
-        <link rel="stylesheet" href="styles/vendor/responsive-gs-12col.css">
-        <link rel="stylesheet" href="styles/vendor/h5boilerplate.css">
-        <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+---
+title: Style Guide
+---
+<!-- This CSS is for the style guide. -->
+<style>
+div[class*="col"] {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 
-    <!-- This CSS is for the style guide. -->
-    <style>
-        div[class*="col"] {
-            -webkit-box-sizing: border-box;
-               -moz-box-sizing: border-box;
-                    box-sizing: border-box;
+    background: #666;
+    color: #fff;
+    padding: 3px;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-            background: #666;
-            color: #fff;
-            padding: 3px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+.code-example {
+    border: 1px solid #666;
+    padding: 5px;
+    margin: 50px 0;
+    position: relative;
+}
 
-        .code-example {
-            border: 1px solid #666;
-            padding: 5px;
-            margin: 50px 0;
-            position: relative;
-        }
+.code-example:before {
+    content: "HTML:";
+    position: absolute;
+    top: -30px;
+}
 
-        .code-example:before {
-            content: "HTML:";
-            position: absolute;
-            top: -30px;
-        }
-
-        .code-example pre {
-            margin: 0;
-        }
-    </style>
-
-    <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
-</head>
-<body class="">
-
-    <div class="container">
+.code-example pre {
+    margin: 0;
+}
+</style>
 
         <!-- Sample content -->
         <h1>Style Guide</h1>
@@ -287,20 +266,3 @@
 &lt;/blockquote&gt;
 &lt;cite&gt;Sir Jonathon Ive&lt;/cite&gt;</pre>
         </div>
-
-    </div>
-
-        <!--
-             JavaScript is added to the bottom of the page for performance reasons.
-             Only Modernizr is used at the top since it is required for the styling of a page.
-         -->
-
-         <!-- Add the latest version of jQuery to the page -->
-         <script src="scripts/vendor/jquery-1.11.0.min.js"></script>
-
-         <!-- Where your JavaScript goes -->
-         <!-- build:js scripts/main.min.js -->
-         <script src="scripts/main.js"></script>
-         <!-- endbuild -->
-    </body>
-</html>

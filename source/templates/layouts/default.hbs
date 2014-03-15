@@ -7,14 +7,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Habanero HTML Prototype</title>
+        <title>{{title}} | {{site.title}}</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- build:css(.tmp/less) styles/styles.min.css -->
             <link rel="stylesheet" href="styles/vendor/normalize.css">
-            <link rel="stylesheet" href="styles/vendor/responsive-gs-24col.css">
-            <!-- <link rel="stylesheet" href="styles/vendor/responsive-gs-12col.css"> -->
             <link rel="stylesheet" href="styles/vendor/h5boilerplate.css">
             <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
@@ -23,10 +21,20 @@
     </head>
     <body>
 
-        <script src="scripts/vendor/jquery-1.11.0.min.js"></script>
+      <div class="container-fluid">
 
-        <!-- build:js scripts/main.min.js -->
-            <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+        {{> header }}
+
+        {{> body }}
+
+        {{> footer }}
+
+      </div>
+
+      <script src="scripts/vendor/jquery-1.11.0.min.js"></script>
+
+      <!-- build:js scripts/main.min.js -->
+          <script src="scripts/main.js"></script>
+      <!-- endbuild -->
     </body>
 </html>
