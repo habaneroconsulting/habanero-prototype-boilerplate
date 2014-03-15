@@ -1,0 +1,29 @@
+//
+// Habanero Prototype
+// Author: Habanero Consulting Group
+// MIT License
+//
+
+
+// Grid
+@grid-container: 940px;
+@grid-columns: 12;
+@grid-column: 60px;
+@grid-gutter-width: 20px;
+
+
+// Container Sizes
+@container-tablet: ((580px + @grid-gutter-width));
+@container-sm: @container-tablet;
+@container-desktop: ((920px + @grid-gutter-width));
+@container-md: @container-desktop;
+
+
+// Media queries breakpoints
+@screen-xs-min: 480px;
+@screen-xs-max: (@screen-sm-min - 1);
+
+@screen-sm-min: 600px;
+@screen-sm-max: (@screen-md-min - 1);
+
+@screen-md-min: 992px;
