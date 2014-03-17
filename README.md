@@ -1,6 +1,6 @@
 # Habanero HTML Prototype Boilerplate
 
-A simple boilerplate to start off prototyping. Built with HTML5 Boilerplate, Normalize, Responsive.gs, and Grunt. 
+A simple boilerplate to start off prototyping. Built with HTML5 Boilerplate, Normalize, Twitter Bootstrap, Assemble, and Grunt. 
 
 ## Build Instructions
 
