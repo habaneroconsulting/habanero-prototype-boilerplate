@@ -26,7 +26,6 @@
     "grunt-contrib-watch": "~0.6",
     "grunt-newer": "~0.7",
     "grunt-open": "~0.2",
-    "grunt-text-replace": "~0.3",
     "grunt-usemin": "~2.1",
     "matchdep": "~0.3"
   },

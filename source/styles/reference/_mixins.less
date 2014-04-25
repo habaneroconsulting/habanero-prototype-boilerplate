@@ -1,0 +1,183 @@
+﻿//
+// _mixins.less contains the mixins needed for main.css
+// Author: Habanero Consulting Group
+// MIT License
+//
+
+// Image replacement
+.image-replacement() {
+    display: block;
+    border: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+// Visually hidden
+.visually-hidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+// Absolutely positioned element to take up all space
+.position-absolute-all(@area: 0) {
+    bottom: @area;
+    left: @area;
+    right: @area; 
+    top: @area;
+}
+
+// Display inline-block with IE7 fallback
+.display-inline-block() {
+    display: inline-block;
+    *display: inline;
+}
+
+// Arrows
+.content() {
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+.arrow-right(@size, @color) {
+    border-bottom: @size solid transparent;
+    border-left: @size solid @color;
+    border-top: @size solid transparent;
+    .content();
+}
+
+.arrow-left(@size, @color) {
+    border-bottom: @size solid transparent;
+    border-right: @size solid @color;
+    border-top: @size solid transparent;
+    .content();
+}
+
+.arrow-up(@size, @color) {
+    border-bottom: @size solid @color;
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    .content();
+}
+
+.arrow-down(@size, @color) {
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-top: @size solid @color;
+    .content();
+}
+
+
+/* Sprites */
+
+.sprite() {
+    background-image: url(@spriteUrl);
+    background-repeat: no-repeat;
+}
+
+.sprite(@x, @y) {
+    .sprite();
+    background-position: -(@x - 1)*@spriteColumnSize -(@y - 1)*@spriteColumnSize;
+}
+
+.sprite(@x, @y, @width, @height, @url: @spriteUrl) {
+    .sprite(@x, @y);
+    height: @height;
+    width: @width;
+}
+
+.retina-sprite() {
+    background-image: url(@spriteUrl2X) !important;
+    // TODO: Change background-size based on sprite size.
+    background-size: 320px 320px;
+}
+
+
+/* Background Image */
+
+.background-image(@file-name, @width, @height) {
+    .background-image(@file-name, @width, @height, no-repeat, 0, 0);
+}
+
+.background-image(@file-name, @width, @height, @repeat) {
+    .background-image(@file-name, @width, @height, @repeat, 0, 0);
+}
+
+//
+// background-image A background image mixin for high resolution images.
+// 
+// @param {string} @file-name The file name of the background-image, including extension.
+// @param {px} @width A pixel width of the original background image.
+// @param {px} @height A pixel height of the original background image.
+// @param {keyword} @repeat A repeat keyword.
+// @param {px} @posx The background position x in pixels.
+// @param {px} @posy The background position y in pixels.
+//
+.background-image(@file-name, @width, @height, @repeat, @posx, @posy) {
+    @filename:  ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{file-name})[1]`;
+    @extension: ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{file-name})[2]`;
+    background: url("@{url-project-images}/@{filename}.@{extension}") @repeat;
+ 
+    & when not (@posx = 0), not (@posy = 0) {
+        background-position: @posx @posy;
+    }
+ 
+    @media (-webkit-min-device-pixel-ratio: @screen-resolution-hdpi),
+        (min-resolution: (@screen-resolution-hdpi * 100dpi)),
+        (min-resolution: (@screen-resolution-hdpi * 1dppx)) {
+        background-image: url("@{url-project-images}/@{filename}@2x.@{extension}");
+        background-size: @width @height;
+ 
+        & when not (@posx = 0), not (@posy = 0) {
+            background-position: (@posx * 2) (@posy * 2);
+        }
+    }
+}
+
+
+.background-image-base64(@file-name, @width, @height) {
+    .background-image-base64(@file-name, @width, @height, no-repeat, 0, 0);
+}
+
+.background-image-base64(@file-name, @width, @height, @repeat) {
+    .background-image-base64(@file-name, @width, @height, @repeat, 0, 0);
+}
+ 
+//
+//
+// background-image-base64 A background image mixin for high resolution images that base64 encodes
+// the file
+// 
+// @param {string} @file-name The file name of the background-image, including extension.
+// @param {px} @width A pixel width of the original background image.
+// @param {px} @height A pixel height of the original background image.
+// @param {keyword} @repeat A repeat keyword.
+// @param {px} @posx The background position x in pixels.
+// @param {px} @posy The background position y in pixels.
+//
+.background-image-base64(@file-name, @width, @height, @repeat, @posx, @posy) {
+    @filename:  ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{file-name})[1]`;
+    @extension: ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{file-name})[2]`;
+    background: data-uri("@{url-project-images}/@{filename}") @repeat;
+ 
+    & when not (@posx = 0), not (@posy = 0) {
+        background-position: @posx @posy;
+    }
+ 
+    @media (-webkit-min-device-pixel-ratio: @screen-resolution-hdpi),
+        (min-resolution: (@screen-resolution-hdpi * 100dpi)),
+        (min-resolution: (@screen-resolution-hdpi * 1dppx)) {
+        background-image: url("@{url-project-images}/@{filename}@2x.@{extension}");
+        background-size: @width @height;
+ 
+        & when not (@posx = 0), not (@posy = 0) {
+            background-position: (@posx * 2) (@posy * 2);
+        }
+    }
+}

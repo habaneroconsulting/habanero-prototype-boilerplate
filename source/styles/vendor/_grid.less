@@ -4,7 +4,7 @@
  * Bootstrap is released under the MIT license and is copyright 2014 Twitter
  */
 
-@import "../_variables";
+@import (reference) "../reference/_variables";
 
 //
 // Grid system
@@ -36,9 +36,10 @@
 	@media (min-width: @screen-md-min) {
 		width: @container-md;
 	}
-	// @media (min-width: @screen-lg-min) {
-	// 	width: @container-lg;
-	// }
+	
+	@media (min-width: @screen-lg-min) {
+		width: @container-lg;
+	}
 }
 
 
@@ -50,8 +51,16 @@
 .container-fluid {
 	.container-fixed();
 
+	@media (min-width: @screen-sm-min) {
+		width: @container-sm;
+	}
+
 	@media (min-width: @screen-md-min) {
-		max-width: @container-md;
+		width: @container-md;
+	}
+
+	@media (min-width: @screen-lg-min) {
+		width: @container-lg;
 	}
 }
 
@@ -60,7 +69,7 @@
 //
 // Rows contain and clear the floats of your columns.
 
-.row {
+.@{prefix}-row {
 	.make-row();
 }
 
@@ -103,9 +112,9 @@
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 
-// @media (min-width: @screen-lg-min) {
-// 	.make-grid(lg);
-// }
+@media (min-width: @screen-lg-min) {
+	.make-grid(lg);
+}
 
 // Grid System
 // -----------
@@ -258,12 +267,12 @@
 .make-grid-columns() {
 	// Common styles for all sizes of grid columns, widths 1-12
 	.col(@index) when (@index = 1) { // initial
-		@item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+		@item: ~".@{prefix}-col-xs-@{index}, .@{prefix}-col-sm-@{index}, .@{prefix}-col-md-@{index}, .@{prefix}-col-lg-@{index}";
 		.col((@index + 1), @item);
 	}
 
 	.col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
-		@item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+		@item: ~".@{prefix}-col-xs-@{index}, .@{prefix}-col-sm-@{index}, .@{prefix}-col-md-@{index}, .@{prefix}-col-lg-@{index}";
 		.col((@index + 1), ~"@{list}, @{item}");
 	}
 
@@ -284,12 +293,12 @@
 
 .float-grid-columns(@class) {
 	.col(@index) when (@index = 1) { // initial
-		@item: ~".col-@{class}-@{index}";
+		@item: ~".@{prefix}-col-@{class}-@{index}";
 		.col((@index + 1), @item);
 	}
 
 	.col(@index, @list) when (@index =< @grid-columns) { // general
-		@item: ~".col-@{class}-@{index}";
+		@item: ~".@{prefix}-col-@{class}-@{index}";
 		.col((@index + 1), ~"@{list}, @{item}");
 	}
 
@@ -303,25 +312,25 @@
 }
 
 .calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
-	.col-@{class}-@{index} {
+	.@{prefix}-col-@{class}-@{index} {
 		width: percentage((@index / @grid-columns));
 	}
 }
 
 .calc-grid-column(@index, @class, @type) when (@type = push) {
-	.col-@{class}-push-@{index} {
+	.@{prefix}-col-@{class}-push-@{index} {
 		left: percentage((@index / @grid-columns));
 	}
 }
 
 .calc-grid-column(@index, @class, @type) when (@type = pull) {
-	.col-@{class}-pull-@{index} {
+	.@{prefix}-col-@{class}-pull-@{index} {
 		right: percentage((@index / @grid-columns));
 	}
 }
 
 .calc-grid-column(@index, @class, @type) when (@type = offset) {
-	.col-@{class}-offset-@{index} {
+	.@{prefix}-col-@{class}-offset-@{index} {
 		margin-left: percentage((@index / @grid-columns));
 	}
 }

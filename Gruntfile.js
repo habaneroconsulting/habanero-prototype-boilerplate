@@ -215,17 +215,6 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        // TODO: Remove once bugs (#190, #317) with grunt-usemin are fixed
-        replace: {
-            prod: {
-                src: ['<%= config.prod %>/**/*.html'],
-                overwrite: true,
-                replacements: [{
-                    from: /\r/g,
-                    to: ''
-                }]
-            }
-        },
         useminPrepare: {
             html: '<%= config.prod %>/index.html',
             options: {
@@ -264,7 +253,6 @@ module.exports = function (grunt) {
         'concat',
         'uglify',
         'cssmin',
-        'replace',
         'usemin'
     ]);
 

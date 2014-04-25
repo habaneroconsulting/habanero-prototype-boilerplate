@@ -1,19 +1,16 @@
 ﻿//
-// _mixins_css3.less contains mixins that add various CSS3 (and some 2) support across various browsers
+// _mixins_compatibility.less contains mixins that add various CSS3 (and some 2) support across various browsers
 // Author: Habanero Consulting Group <support@habaneroconsulting.com>
 //
 
 //
-// border-radius A cross browser implemenetation of border-radius. Does not support IE8 and below.
+// backface-visibility A cross browser implementation of backface-visibility.
+// 
+// @param {string} @visibility Shows whether or not the backface is visible when facing the user. Defaults to visible (browser default).
 //
-// @{param} {int} @radius The border radius used on each corner.
-//
-.border-radius(@radius) {
-	-webkit-border-radius: @radius;
-			border-radius: @radius;
-
-	-webkit-background-clip: padding-box;
-			background-clip: padding-box;
+.backface-visibility(@visibility: visible) {
+	-webkit-backface-visibility: @visibility;
+			backface-visibility: @visibility;
 }
 
 //
@@ -36,6 +33,19 @@
 	   -moz-background-origin: @origin;
 	-webkit-background-origin: @origin;
 			background-origin: @origin;
+}
+
+//
+// border-radius A cross browser implemenetation of border-radius. Does not support IE8 and below.
+//
+// @{param} {int} @radius The border radius used on each corner.
+//
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+			border-radius: @radius;
+
+	-webkit-background-clip: padding-box;
+			background-clip: padding-box;
 }
 
 //
