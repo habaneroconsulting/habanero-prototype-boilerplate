@@ -1,4 +1,4 @@
-﻿//
+//
 // _mixins_compatibility.less contains mixins that add various CSS3 (and some 2) support across various browsers
 // Author: Habanero Consulting Group <support@habaneroconsulting.com>
 //
@@ -9,8 +9,8 @@
 // @param {string} @visibility Shows whether or not the backface is visible when facing the user. Defaults to visible (browser default).
 //
 .backface-visibility(@visibility: visible) {
-	-webkit-backface-visibility: @visibility;
-			backface-visibility: @visibility;
+    -webkit-backface-visibility: @visibility;
+            backface-visibility: @visibility;
 }
 
 //
@@ -19,9 +19,9 @@
 // @param {string} @clip Where the background image should be clipped (padding-box, border-box). Defaults to padding-box (browser default).
 //
 .background-clip(@clip: padding-box) {
-	   -moz-background-clip: @clip;
-	-webkit-background-clip: @clip;
-			background-clip: @clip;
+       -moz-background-clip: @clip;
+    -webkit-background-clip: @clip;
+            background-clip: @clip;
 }
 
 //
@@ -30,9 +30,9 @@
 // @param {string} @origin The origin of where the background image should lay. Defaults to padding-box (browser default).
 //
 .background-origin(@origin: padding-box) {
-	   -moz-background-origin: @origin;
-	-webkit-background-origin: @origin;
-			background-origin: @origin;
+       -moz-background-origin: @origin;
+    -webkit-background-origin: @origin;
+            background-origin: @origin;
 }
 
 //
@@ -41,11 +41,11 @@
 // @{param} {int} @radius The border radius used on each corner.
 //
 .border-radius(@radius) {
-	-webkit-border-radius: @radius;
-			border-radius: @radius;
+    -webkit-border-radius: @radius;
+            border-radius: @radius;
 
-	-webkit-background-clip: padding-box;
-			background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+            background-clip: padding-box;
 }
 
 //
@@ -54,9 +54,9 @@
 // @param {string} @properties All the properties
 //
 .box-shadow(@properties) {
-	   -moz-box-shadow: @properties;
-	-webkit-box-shadow: @properties;
-			box-shadow: @properties;
+       -moz-box-shadow: @properties;
+    -webkit-box-shadow: @properties;
+            box-shadow: @properties;
 }
 
 //
@@ -69,9 +69,9 @@
 // @param {color} @color The colour for the shadow
 //
 .box-shadow(@horizontal, @vertical, @blur, @spread, @color) {
-	   -moz-box-shadow: @horizontal @vertical @blur @spread @color;
-	-webkit-box-shadow: @horizontal @vertical @blur @spread @color;
-			box-shadow: @horizontal @vertical @blur @spread @color;
+       -moz-box-shadow: @horizontal @vertical @blur @spread @color;
+    -webkit-box-shadow: @horizontal @vertical @blur @spread @color;
+            box-shadow: @horizontal @vertical @blur @spread @color;
 }
 
 //
@@ -84,9 +84,9 @@
 // @param {color} @color The colour for the shadow
 //
 .inner-box-shadow(@horizontal, @vertical, @blur, @spread, @color) {
-	   -moz-box-shadow: inset @horizontal @vertical @blur @spread @color;
-	-webkit-box-shadow: inset @horizontal @vertical @blur @spread @color;
-			box-shadow: inset @horizontal @vertical @blur @spread @color;
+       -moz-box-shadow: inset @horizontal @vertical @blur @spread @color;
+    -webkit-box-shadow: inset @horizontal @vertical @blur @spread @color;
+            box-shadow: inset @horizontal @vertical @blur @spread @color;
 }
 
 //
@@ -95,8 +95,8 @@
 // @param {string} @args A list of arguments for box-sizing. Defaults to border-box (not a browser standard).
 //
 .box-sizing(@sizing: border-box) {
-	   -moz-box-sizing: @sizing;
-	-webkit-box-sizing: @sizing;
+       -moz-box-sizing: @sizing;
+    -webkit-box-sizing: @sizing;
             box-sizing: @sizing;
 }
 
@@ -107,9 +107,9 @@
 // @param {int} @columnGap The width between the columns
 //
 .column-count(@columns) {
-	-webkit-column-count: @columns;
-	   -moz-column-count: @columns; 
-			column-count: @columns;
+    -webkit-column-count: @columns;
+       -moz-column-count: @columns; 
+            column-count: @columns;
 }
 
 //
@@ -119,22 +119,22 @@
 // @param {int} @columnGap The width between the columns
 //
 .column-count(@columns, @columnGap) {
-	-webkit-column-count: @columns;
-	   -moz-column-count: @columns; 
-			column-count: @columns;
+    -webkit-column-count: @columns;
+       -moz-column-count: @columns; 
+            column-count: @columns;
 
-	-webkit-column-gap: @columnGap;
-	   -moz-column-gap: @columnGap;
-			column-gap: @columnGap;
+    -webkit-column-gap: @columnGap;
+       -moz-column-gap: @columnGap;
+            column-gap: @columnGap;
 }
 
 //
 // inline-block A cross-browser implementation of inline-block with IE7 and below fallback
 //
 .inline-block() {
-	display: inline-block;
-	*display: inline;
-	zoom: 1;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
 }
 
 //
@@ -143,8 +143,8 @@
 // @param {string} inline-block-alignment The alignment of the inline block element
 //
 .inline-block(@alignment) {
-	.inline-block();
-	vertical-align: @alignment;
+    .inline-block();
+    vertical-align: @alignment;
 }
 
 
@@ -155,12 +155,12 @@
 // @param {color} @end The end (bottom) color of the gradient
 //
 .linear-gradient(@start, @end) {
-	background-color: mix(@start, @end);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
-	background-image: -webkit-linear-gradient(top, @start, @end);
-	background-image:    -moz-linear-gradient(top, @start, @end);
-	background-image:      -o-linear-gradient(top, @start, @end);
-	background-image:   linear-gradient(to bottom, @start, @end);
+    background-color: mix(@start, @end);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
+    background-image: -webkit-linear-gradient(top, @start, @end);
+    background-image:    -moz-linear-gradient(top, @start, @end);
+    background-image:      -o-linear-gradient(top, @start, @end);
+    background-image:   linear-gradient(to bottom, @start, @end);
 }
 
 //
@@ -171,12 +171,12 @@
 // @param {color} @end The end (bottom) color of the gradient
 //
 .linear-gradient(@fallback, @start, @end) {
-	background-color: @fallback;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
-	background-image: -webkit-linear-gradient(top, @start, @end);
-	background-image:    -moz-linear-gradient(top, @start, @end);
-	background-image:      -o-linear-gradient(top, @start, @end);
-	background-image:   linear-gradient(to bottom, @start, @end);
+    background-color: @fallback;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
+    background-image: -webkit-linear-gradient(top, @start, @end);
+    background-image:    -moz-linear-gradient(top, @start, @end);
+    background-image:      -o-linear-gradient(top, @start, @end);
+    background-image:   linear-gradient(to bottom, @start, @end);
 }
 
 //
@@ -187,12 +187,12 @@
 // @param {stop} number percentage based to stop at
 // 
 .ttb-linear-gradient(@start, @endcolor, @numStop) {
-	//background-image: -webkit-gradient(linear,left top, left bottom, from(@start) 0%, to(@endcolor) @numStop); // Chrome, Safari 4+
-	background-image: -webkit-linear-gradient(top, @start 0%, @endcolor @numStop); // Chrome 10+, Safari 5.1+
-	background-image:    -moz-linear-gradient(top, @start 0%, @endcolor @numStop); // FF 3.6+
-	background-image:     -ms-linear-gradient(top, @start 0%, @endcolor @numStop); // IE10+
-	background-image:      -o-linear-gradient(top, @start 0%, @endcolor @numStop); // Opera 11.10+
-	background-image:         linear-gradient(top, @start 0%, @endcolor @numStop);
+    //background-image: -webkit-gradient(linear,left top, left bottom, from(@start) 0%, to(@endcolor) @numStop); // Chrome, Safari 4+
+    background-image: -webkit-linear-gradient(top, @start 0%, @endcolor @numStop); // Chrome 10+, Safari 5.1+
+    background-image:    -moz-linear-gradient(top, @start 0%, @endcolor @numStop); // FF 3.6+
+    background-image:     -ms-linear-gradient(top, @start 0%, @endcolor @numStop); // IE10+
+    background-image:      -o-linear-gradient(top, @start 0%, @endcolor @numStop); // Opera 11.10+
+    background-image:         linear-gradient(top, @start 0%, @endcolor @numStop);
 }
 
 
@@ -208,12 +208,12 @@
 // @param {color} @fallback A fallback color for browsers that don't support gradients
 // 
 .ttb-linear-gradient(@startcolor, @startstop, @middlecolor, @middlestop, @endcolor, @endstop, @fallback) {
-	background-color: @fallback;
-	background-image: -webkit-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // Chrome 10+, Safari 5.1+
-	background-image:    -moz-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // FF 3.6+
-	background-image:     -ms-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // IE10+
-	background-image:      -o-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // Opera 11.10+
-	background-image:         linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop);
+    background-color: @fallback;
+    background-image: -webkit-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // Chrome 10+, Safari 5.1+
+    background-image:    -moz-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // FF 3.6+
+    background-image:     -ms-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // IE10+
+    background-image:      -o-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // Opera 11.10+
+    background-image:         linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop);
 }
 
 //
@@ -224,13 +224,13 @@
 // @param {color} @right The end (right) color of the gradient
 //
 .ltr-linear-gradient(@left, @right) {
-	background-color: mix(@left, @right);
-	background-image: -webkit-gradient(linear, left top, right bottom, from(@left), to(@right)); // Chrome, Safari 4+
-	background-image: -webkit-linear-gradient(left, @left 0%, @right 100%); // Chrome 10+, Safari 5.1+
-	background-image:    -moz-linear-gradient(left, @left 0%, @right 100%); // FF 3.6+
-	background-image:     -ms-linear-gradient(left, @left 0%, @right 100%); // IE10+
-	background-image:      -o-linear-gradient(left, @left 0%, @right 100%); // Opera 11.10+
-	background-image:         linear-gradient(left, @left 0%, @right 100%);
+    background-color: mix(@left, @right);
+    background-image: -webkit-gradient(linear, left top, right bottom, from(@left), to(@right)); // Chrome, Safari 4+
+    background-image: -webkit-linear-gradient(left, @left 0%, @right 100%); // Chrome 10+, Safari 5.1+
+    background-image:    -moz-linear-gradient(left, @left 0%, @right 100%); // FF 3.6+
+    background-image:     -ms-linear-gradient(left, @left 0%, @right 100%); // IE10+
+    background-image:      -o-linear-gradient(left, @left 0%, @right 100%); // Opera 11.10+
+    background-image:         linear-gradient(left, @left 0%, @right 100%);
 }
 
 //
@@ -242,13 +242,13 @@
 // @param {color} @right The end (right) color of the gradient
 //
 .ltr-linear-gradient(@left, @middle, @right) {
-	background-color: @middle;
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%,@left), color-stop(50%,@middle), color-stop(100%,@right)); // Chrome, Safari 4+
-	background-image: -webkit-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // Chrome 10+, Safari 5.1+
-	background-image:    -moz-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // FF 3.6+
-	background-image:     -ms-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // IE10+
-	background-image:      -o-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // Opera 11.10+
-	background-image:         linear-gradient(left, @left 0%, @middle 50%, @right 100%);
+    background-color: @middle;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%,@left), color-stop(50%,@middle), color-stop(100%,@right)); // Chrome, Safari 4+
+    background-image: -webkit-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // Chrome 10+, Safari 5.1+
+    background-image:    -moz-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // FF 3.6+
+    background-image:     -ms-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // IE10+
+    background-image:      -o-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // Opera 11.10+
+    background-image:         linear-gradient(left, @left 0%, @middle 50%, @right 100%);
 }
 
 //
@@ -257,8 +257,8 @@
 // @param {int} @opacity The opacity of the box as a integer (out of 100).
 //
 .opacity(@opacity) {
-	opacity: @opacity / 100;
-	filter: ~"alpha(opacity=@{opacity})";
+    opacity: @opacity / 100;
+    filter: ~"alpha(opacity=@{opacity})";
 }
 
 
@@ -290,7 +290,7 @@
 // @param {string} @args The arguments for the text shadow.
 //
 .text-shadow(@args) {
-	text-shadow: @args;
+    text-shadow: @args;
 }
 
 /*#region Transform */
@@ -301,10 +301,10 @@
 // @param {string} @type The arguments for the transform
 //
 .transform(@type) {
-	-webkit-transform: @type;
-	   -moz-transform: @type;
-		-ms-transform: @type;
-			transform: @type;
+    -webkit-transform: @type;
+       -moz-transform: @type;
+        -ms-transform: @type;
+            transform: @type;
 }
 
 //
@@ -313,11 +313,11 @@
 // @param {int} @factor The size of the scaling
 //
 .scale(@factor) {
-	-webkit-transform: scale(@factor);
-	   -moz-transform: scale(@factor);
-		-ms-transform: scale(@factor);
-		 -o-transform: scale(@factor);
-			transform: scale(@factor);
+    -webkit-transform: scale(@factor);
+       -moz-transform: scale(@factor);
+        -ms-transform: scale(@factor);
+         -o-transform: scale(@factor);
+            transform: scale(@factor);
 }
 
 //
@@ -326,11 +326,11 @@
 // @param {int} @deg The degree to rotate
 //
 .rotate(@deg) {
-	-webkit-transform: rotate(@deg);
-	   -moz-transform: rotate(@deg);
-		-ms-transform: rotate(@deg);
-		 -o-transform: rotate(@deg);
-			transform: rotate(@deg);
+    -webkit-transform: rotate(@deg);
+       -moz-transform: rotate(@deg);
+        -ms-transform: rotate(@deg);
+         -o-transform: rotate(@deg);
+            transform: rotate(@deg);
 }
 
 //
@@ -340,13 +340,13 @@
 // @param {int} @deg2 The degree to skew
 //
 .skew(@deg, @deg2) {
-	-webkit-transform: skew(@deg, @deg2);
-	   -moz-transform: skew(@deg, @deg2);
-		-ms-transform: skew(@deg, @deg2);
-		 -o-transform: skew(@deg, @deg2);
-			transform: skew(@deg, @deg2);
+    -webkit-transform: skew(@deg, @deg2);
+       -moz-transform: skew(@deg, @deg2);
+        -ms-transform: skew(@deg, @deg2);
+         -o-transform: skew(@deg, @deg2);
+            transform: skew(@deg, @deg2);
 
-	-webkit-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 //
@@ -356,25 +356,22 @@
 // @param {int} @y The translation in the y axis
 //
 .translate(@x, @y:0) {
-	-webkit-transform: translate(@x, @y);
-	   -moz-transform: translate(@x, @y);
-		-ms-transform: translate(@x, @y);
-		 -o-transform: translate(@x, @y);
+    -webkit-transform: translate(@x, @y);
+       -moz-transform: translate(@x, @y);
+        -ms-transform: translate(@x, @y);
+         -o-transform: translate(@x, @y);
 }
 
 /*#endregion */
 
-
 //
 // transition A cross-browser implementation of transition. Does not work in IE9 and below.
 //
-// @param {string} @property The CSS properties that need to be transitioned. Defaults to every property.
-// @param {string} @duration The length of time for the transition
-// @param {string} @timing The timing keyword used. Defaults to linear.
+// @param {string} @properties
 //
-.transition(@property: all, @duration: 0.2s, @timing: linear) {
-	-webkit-transition: @property @duration @timing;
-	   -moz-transition: @property @duration @timing;
-		 -o-transition: @property @duration @timing;
-			transition: @property @duration @timing;
+.transition(@properties) {
+    -webkit-transition: @properties;
+       -moz-transition: @properties;
+         -o-transition: @properties;
+            transition: @properties;
 }
