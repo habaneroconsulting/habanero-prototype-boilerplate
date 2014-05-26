@@ -1,4 +1,4 @@
-//
+﻿//
 // _mixins_compatibility.less contains mixins that add various CSS3 (and some 2) support across various browsers
 // Author: Habanero Consulting Group <support@habaneroconsulting.com>
 //
@@ -13,16 +13,16 @@
             backface-visibility: @visibility;
 }
 
+
 //
 // background-clip A cross browser implementation of background-clip.
 //
 // @param {string} @clip Where the background image should be clipped (padding-box, border-box). Defaults to padding-box (browser default).
 //
 .background-clip(@clip: padding-box) {
-       -moz-background-clip: @clip;
-    -webkit-background-clip: @clip;
-            background-clip: @clip;
+    background-clip: @clip;
 }
+
 
 //
 // background-origin A cross browser implementation of background-origin.
@@ -35,18 +35,17 @@
             background-origin: @origin;
 }
 
+
 //
 // border-radius A cross browser implemenetation of border-radius. Does not support IE8 and below.
 //
 // @{param} {int} @radius The border radius used on each corner.
 //
 .border-radius(@radius) {
-    -webkit-border-radius: @radius;
-            border-radius: @radius;
-
-    -webkit-background-clip: padding-box;
-            background-clip: padding-box;
+    border-radius: @radius;
+    background-clip: padding-box;
 }
+
 
 //
 // box-shadow A cross-browser implementation of box-shadow. Does not work in IE8 and below.
@@ -54,10 +53,10 @@
 // @param {string} @properties All the properties
 //
 .box-shadow(@properties) {
-       -moz-box-shadow: @properties;
     -webkit-box-shadow: @properties;
             box-shadow: @properties;
 }
+
 
 //
 // box-shadow A cross-browser implementation of box-shadow. Does not work in IE8 and below.
@@ -69,10 +68,10 @@
 // @param {color} @color The colour for the shadow
 //
 .box-shadow(@horizontal, @vertical, @blur, @spread, @color) {
-       -moz-box-shadow: @horizontal @vertical @blur @spread @color;
     -webkit-box-shadow: @horizontal @vertical @blur @spread @color;
             box-shadow: @horizontal @vertical @blur @spread @color;
 }
+
 
 //
 // inner-box-shadow A cross-browser implementation of box-shadow with inset. Does not work in IE8 and below.
@@ -84,10 +83,10 @@
 // @param {color} @color The colour for the shadow
 //
 .inner-box-shadow(@horizontal, @vertical, @blur, @spread, @color) {
-       -moz-box-shadow: inset @horizontal @vertical @blur @spread @color;
     -webkit-box-shadow: inset @horizontal @vertical @blur @spread @color;
             box-shadow: inset @horizontal @vertical @blur @spread @color;
 }
+
 
 //
 // box-sizing A cross-browser implementation of box-sizing.
@@ -95,10 +94,11 @@
 // @param {string} @args A list of arguments for box-sizing. Defaults to border-box (not a browser standard).
 //
 .box-sizing(@sizing: border-box) {
-       -moz-box-sizing: @sizing;
     -webkit-box-sizing: @sizing;
+       -moz-box-sizing: @sizing;
             box-sizing: @sizing;
 }
+
 
 //
 // column-count A cross-browser implementation of column-count. Does not support IE8 and below.
@@ -111,6 +111,7 @@
        -moz-column-count: @columns; 
             column-count: @columns;
 }
+
 
 //
 // column-count A cross-browser implementation of column-count. Does not support IE8 and below.
@@ -128,6 +129,7 @@
             column-gap: @columnGap;
 }
 
+
 //
 // inline-block A cross-browser implementation of inline-block with IE7 and below fallback
 //
@@ -136,6 +138,7 @@
     *display: inline;
     zoom: 1;
 }
+
 
 //
 // inline-block with alignment
@@ -156,12 +159,10 @@
 //
 .linear-gradient(@start, @end) {
     background-color: mix(@start, @end);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
     background-image: -webkit-linear-gradient(top, @start, @end);
-    background-image:    -moz-linear-gradient(top, @start, @end);
-    background-image:      -o-linear-gradient(top, @start, @end);
     background-image:   linear-gradient(to bottom, @start, @end);
 }
+
 
 //
 // linear-gradient with mixed fallback for IE9 and below.
@@ -172,12 +173,10 @@
 //
 .linear-gradient(@fallback, @start, @end) {
     background-color: @fallback;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
     background-image: -webkit-linear-gradient(top, @start, @end);
-    background-image:    -moz-linear-gradient(top, @start, @end);
-    background-image:      -o-linear-gradient(top, @start, @end);
     background-image:   linear-gradient(to bottom, @start, @end);
 }
+
 
 //
 // linear gradient from Top To Bottom with percentage based stop
@@ -189,9 +188,6 @@
 .ttb-linear-gradient(@start, @endcolor, @numStop) {
     //background-image: -webkit-gradient(linear,left top, left bottom, from(@start) 0%, to(@endcolor) @numStop); // Chrome, Safari 4+
     background-image: -webkit-linear-gradient(top, @start 0%, @endcolor @numStop); // Chrome 10+, Safari 5.1+
-    background-image:    -moz-linear-gradient(top, @start 0%, @endcolor @numStop); // FF 3.6+
-    background-image:     -ms-linear-gradient(top, @start 0%, @endcolor @numStop); // IE10+
-    background-image:      -o-linear-gradient(top, @start 0%, @endcolor @numStop); // Opera 11.10+
     background-image:         linear-gradient(top, @start 0%, @endcolor @numStop);
 }
 
@@ -210,11 +206,9 @@
 .ttb-linear-gradient(@startcolor, @startstop, @middlecolor, @middlestop, @endcolor, @endstop, @fallback) {
     background-color: @fallback;
     background-image: -webkit-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // Chrome 10+, Safari 5.1+
-    background-image:    -moz-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // FF 3.6+
-    background-image:     -ms-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // IE10+
-    background-image:      -o-linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop); // Opera 11.10+
     background-image:         linear-gradient(top, @startcolor @startstop, @middlecolor @middlestop, @endcolor @endstop);
 }
+
 
 //
 // ltr-linear-gradient Creates a linear gradient with two stops going left to right. Falls back to the mixed color
@@ -233,6 +227,7 @@
     background-image:         linear-gradient(left, @left 0%, @right 100%);
 }
 
+
 //
 // ltr-linear-gradient Creates a linear gradient with three stops going left to right. Falls back to the middle color
 //                     IE9 and below.
@@ -243,13 +238,10 @@
 //
 .ltr-linear-gradient(@left, @middle, @right) {
     background-color: @middle;
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%,@left), color-stop(50%,@middle), color-stop(100%,@right)); // Chrome, Safari 4+
     background-image: -webkit-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // Chrome 10+, Safari 5.1+
-    background-image:    -moz-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // FF 3.6+
-    background-image:     -ms-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // IE10+
-    background-image:      -o-linear-gradient(left, @left 0%, @middle 50%, @right 100%); // Opera 11.10+
     background-image:         linear-gradient(left, @left 0%, @middle 50%, @right 100%);
 }
+
 
 //
 // opacity Changes the opacity on the box with IE8 and below fallback.
@@ -263,28 +255,6 @@
 
 
 //
-// RGBA
-// Use with colour name: .rgba(black, 0.5) or hex value: .rgba(#FF2400, 0.5)
-.rgba(@colour, @alpha) {
-    @alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);
-    
-    background-color: @colour; // Fallback for older browsers
-    background-color: @alphaColour;
-
-    .hcf-ie8 & {
-        background-color: @colour;
-        @ieAlphaColour: argb(@alphaColour);
-
-        // IE hacks
-        zoom: 1; // hasLayout
-        background-color: transparent\9;
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 8+
-        filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 6 & 7
-    }
-}
-
-
-//
 // text-shadow A cross-browser implementation of text shadow. Does not support IE8 or below.
 //
 // @param {string} @args The arguments for the text shadow.
@@ -292,6 +262,7 @@
 .text-shadow(@args) {
     text-shadow: @args;
 }
+
 
 /*#region Transform */
 
@@ -302,10 +273,10 @@
 //
 .transform(@type) {
     -webkit-transform: @type;
-       -moz-transform: @type;
         -ms-transform: @type;
             transform: @type;
 }
+
 
 //
 // Scale
@@ -314,11 +285,10 @@
 //
 .scale(@factor) {
     -webkit-transform: scale(@factor);
-       -moz-transform: scale(@factor);
         -ms-transform: scale(@factor);
-         -o-transform: scale(@factor);
             transform: scale(@factor);
 }
+
 
 //
 // rotate
@@ -327,11 +297,10 @@
 //
 .rotate(@deg) {
     -webkit-transform: rotate(@deg);
-       -moz-transform: rotate(@deg);
         -ms-transform: rotate(@deg);
-         -o-transform: rotate(@deg);
             transform: rotate(@deg);
 }
+
 
 //
 // skew
@@ -341,13 +310,12 @@
 //
 .skew(@deg, @deg2) {
     -webkit-transform: skew(@deg, @deg2);
-       -moz-transform: skew(@deg, @deg2);
         -ms-transform: skew(@deg, @deg2);
-         -o-transform: skew(@deg, @deg2);
             transform: skew(@deg, @deg2);
 
     -webkit-backface-visibility: hidden;
 }
+
 
 //
 // translate
@@ -357,9 +325,8 @@
 //
 .translate(@x, @y:0) {
     -webkit-transform: translate(@x, @y);
-       -moz-transform: translate(@x, @y);
         -ms-transform: translate(@x, @y);
-         -o-transform: translate(@x, @y);
+            transform: translate(@x, @y);
 }
 
 /*#endregion */
@@ -367,11 +334,11 @@
 //
 // transition A cross-browser implementation of transition. Does not work in IE9 and below.
 //
-// @param {string} @properties
+// @param {string} @property The CSS properties that need to be transitioned. Defaults to every property.
+// @param {string} @duration The length of time for the transition
+// @param {string} @timing The timing keyword used. Defaults to linear.
 //
 .transition(@properties) {
     -webkit-transition: @properties;
-       -moz-transition: @properties;
-         -o-transition: @properties;
             transition: @properties;
 }

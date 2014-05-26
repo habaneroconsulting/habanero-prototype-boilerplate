@@ -4,8 +4,10 @@
 // MIT License
 //
 
+@import (reference) "_mixins";
+@import (reference) "_mixins_compatibility";
+@import (reference) "_variables";
+
 .clean-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    .clean-list();
 }
