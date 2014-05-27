@@ -10,10 +10,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="styles/vendor/sharepoint.css">
+    <link rel="stylesheet" href="styles/sharepoint-reset.css">
+
     <!--[if (lt IE 10) ]>
         <link rel="stylesheet" href="styles/ie.css" />
     <![endif]-->
-    <!--[if (gte IE 10)|!(IE)]><!-->
+    <!--[if (gte IE 10)|!(IE)]><!-->        
         <!-- build:css(.tmp/less) styles/styles.min.css -->
             <link rel="stylesheet" href="styles/style.css">
         <!-- endbuild -->
@@ -22,15 +25,26 @@
     <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
+    <form id="aspnetForm">
 
-        {{> header }}
+        {{> sharepoint-suitebar }}
+        {{> sharepoint-ribbon }}
+        
+        <div id="s4-workspace" class="ms-core-overlay">
 
-        {{> body }}
+            <div class="container-fluid" id="s4-bodyContainer">
 
-        {{> footer }}
+                {{> header }}
 
-    </div>
+                {{> body }}
+
+                {{> footer }}
+
+            </div>
+            
+        </div>
+
+    </form>
 
     <script src="scripts/vendor/jquery-1.11.0.min.js"></script>
 

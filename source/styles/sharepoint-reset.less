@@ -1,0 +1,102 @@
+//
+// Habanero Prototype Boilerplate
+// Author: Habanero Consulting Group
+//
+
+@import (reference) "reference/_extends";
+@import (reference) "reference/_mixins";
+@import (reference) "reference/_mixins_compatibility";
+@import (reference) "reference/_variables";
+
+
+#s4-bodyContainer {
+    padding-bottom: 0;
+}
+
+/* Font Reset */
+
+font,
+h1,
+h2,
+h3,
+.ms-h1,
+.ms-h2,
+.ms-h3,
+.ms-headerFont,
+.ms-webpart-titleText.ms-webpart-titleText,
+.ms-webpart-titleText > a,
+.ms-textLarge,
+.ms-metadata, .ms-descriptiontext,
+.ms-secondaryCommandLink,
+.ms-dlg-heading,
+h2.ms-dlg-heading,
+.ms-calloutLink:link,
+a.ms-calloutLink:visited,
+.ms-calloutLinkDisabled,
+.ms-commandLink,
+.ms-commandLink:visited,
+.ms-secondaryCommandLink,
+.ms-secondaryCommandLink:visited,
+.ms-advsrchPropValue,
+.ms-advsrchText-v2box {
+    font-family: @font-family-sansserif;
+}
+
+font {
+    color: inherit !important;
+}
+
+/* Ribbon */
+
+#pageStatusBar[class] {
+    margin-bottom: 0;
+}
+
+/* Header */
+
+#s4-titlerow {
+    display: block !important;
+    height: auto;
+}
+
+/* Search */
+
+.ms-mpSearchBox {
+    width: auto;
+}
+
+#searchInputBox {
+    float: none;
+    margin-bottom: 0;
+}
+
+.ms-srch-sb > input {
+    width: 90px;
+}
+
+.ms-advsrchPropValue,
+.ms-advsrchText-v2box {
+    height: auto;
+}
+
+/* Content */
+
+#contentRow {
+    padding-top: 0;
+}
+
+#contentBox {
+    margin: 0;
+    min-width: 0;
+}
+
+/* Web Parts */
+
+.ms-webpart-titleText.ms-webpart-titleText,
+.ms-webpart-titleText > a {
+    text-align: left !important;
+}
+
+.ms-webpart-titleText nobr {
+    white-space: normal !important;
+}
