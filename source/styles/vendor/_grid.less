@@ -50,7 +50,7 @@
 //
 // Rows contain and clear the floats of your columns.
 
-.@{prefix}-row {
+.@{prefix}row {
     .make-row(0);
 
     @media @media-screen-sm {
@@ -151,12 +151,12 @@
 .make-grid-columns() {
     // Common styles for all sizes of grid columns, widths 1-12
     .col(@index) when (@index = 1) { // initial
-        @item: ~".@{prefix}-col-xs-@{index}, .@{prefix}-col-sm-@{index}, .@{prefix}-col-md-@{index}, .@{prefix}-col-lg-@{index}";
+        @item: ~".@{prefix}col-xs-@{index}, .@{prefix}col-sm-@{index}, .@{prefix}col-md-@{index}, .@{prefix}col-lg-@{index}";
         .col((@index + 1), @item);
     }
 
     .col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
-        @item: ~".@{prefix}-col-xs-@{index}, .@{prefix}-col-sm-@{index}, .@{prefix}-col-md-@{index}, .@{prefix}-col-lg-@{index}";
+        @item: ~".@{prefix}col-xs-@{index}, .@{prefix}col-sm-@{index}, .@{prefix}col-md-@{index}, .@{prefix}col-lg-@{index}";
         .col((@index + 1), ~"@{list}, @{item}");
     }
 
@@ -192,12 +192,12 @@
 
 .float-grid-columns(@class) {
     .col(@index) when (@index = 1) { // initial
-        @item: ~".@{prefix}-col-@{class}-@{index}";
+        @item: ~".@{prefix}col-@{class}-@{index}";
         .col((@index + 1), @item);
     }
 
     .col(@index, @list) when (@index =< @grid-columns) { // general
-        @item: ~".@{prefix}-col-@{class}-@{index}";
+        @item: ~".@{prefix}col-@{class}-@{index}";
         .col((@index + 1), ~"@{list}, @{item}");
     }
 
@@ -211,25 +211,25 @@
 }
 
 .calc-grid-column(@index, @class, @gutter, @type) when (@type = width) and (@index > 0) {
-    .@{prefix}-col-@{class}-@{index} {
+    .@{prefix}col-@{class}-@{index} {
         width: percentage((@index / @grid-columns));
     }
 }
 
 .calc-grid-column(@index, @class, @gutter, @type) when (@type = push) {
-    .@{prefix}-col-@{class}-push-@{index} {
+    .@{prefix}col-@{class}-push-@{index} {
         left: percentage((@index / @grid-columns));
     }
 }
 
 .calc-grid-column(@index, @class, @gutter, @type) when (@type = pull) {
-    .@{prefix}-col-@{class}-pull-@{index} {
+    .@{prefix}col-@{class}-pull-@{index} {
         right: percentage((@index / @grid-columns));
     }
 }
 
 .calc-grid-column(@index, @class, @gutter, @type) when (@type = offset) {
-    .@{prefix}-col-@{class}-offset-@{index} {
+    .@{prefix}col-@{class}-offset-@{index} {
         margin-left: percentage((@index / @grid-columns));
     }
 }
