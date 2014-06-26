@@ -9,8 +9,10 @@ A simple boilerplate to start off prototyping. Built with HTML5 Boilerplate, Nor
 2. Install Grunt and Grunt CLI.
 
         npm -g install grunt grunt-cli
+
 3. Run `npm install` from command line at root project folder.
     This will read the *package.json* file and pull in all required node modules and put into a directory called *node_modules*. This directory is generated so it can be deleted and should not be checked into source control. If deleted, running `npm install` will re-create it.
+
 4. Use `grunt` to build:
     - `grunt build` will create a debug/test version of the site (i.e. LESS compilation)
     - `grunt production` will create a production version of the site (i.e. JavaScript and CSS concatenated and minified)
