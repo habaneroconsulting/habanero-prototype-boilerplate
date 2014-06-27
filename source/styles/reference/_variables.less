@@ -1,9 +1,9 @@
 //
-// Habanero Prototype Boilerplate
-// Author: Habanero Consulting Group
+// reference/_variables.less
 //
 
-// CSS prefix, should end with hyphen
+
+// CSS prefix, should end with a hyphen
 @prefix: ~"";
 
 
@@ -17,13 +17,18 @@
 @grey-dark:    darken(@grey, 10%);
 @grey-darker:  darken(@grey, 25%);
 
+// Color mappings
+@primary-light: @grey-light;
+@primary:       @grey;
+@primary-dark:  @grey-dark;
+
 
 // Font Family
 @font-family-sansserif: Arial, Helvetica, sans-serif;
-@font-family-serif: Georgia, "Times New Roman", serif;
+@font-family-serif:     Georgia, "Times New Roman", serif;
 @font-family-monospace: Consolas, monospace;
 
-@font-family-body: @font-family-sansserif;
+@font-family-body:    @font-family-sansserif;
 @font-family-heading: @font-family-serif;
 
 
@@ -36,13 +41,13 @@
 
 
 // Line Height
-@line-height-body: 1.4;
+@line-height-body:    1.4;
 @line-height-heading: 1.2;
 
 
 // Grid
-@grid-container: 950px;
-@grid-columns: 24;
+@grid-container:    950px;
+@grid-columns:      24;
 @grid-column-width: 30px;
 @grid-gutter-width: 10px;
 

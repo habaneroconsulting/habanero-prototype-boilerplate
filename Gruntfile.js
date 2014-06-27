@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function (grunt) {
     // Load all grunt tasks
     grunt.loadNpmTasks('assemble');

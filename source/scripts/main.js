@@ -1,5 +1,5 @@
 /*!
- * Habanero Prototype Boilerplate
+ * main.js
  * Author: Habanero Consulting Group
  */
 

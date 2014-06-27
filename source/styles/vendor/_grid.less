@@ -1,6 +1,6 @@
 /*!
  * grid.less
- * Grid system from Twitter Bootstrap
+ * Grid system is modified from Twitter Bootstrap
  * Bootstrap is released under the MIT license and is copyright 2014 Twitter
  */
 
@@ -9,7 +9,6 @@
 //
 // Grid system
 // --------------------------------------------------
-
 .clearfix {
     &:before,
     &:after {
@@ -24,10 +23,10 @@
     zoom: 1;
 }
 
+
 // Container widths
 //
 // Set the container width, and override it for fixed navbars in media queries.
-
 .container,
 .container-fluid {
     .container-fixed();
@@ -49,7 +48,6 @@
 // Row
 //
 // Rows contain and clear the floats of your columns.
-
 .@{prefix}row {
     .make-row(0);
 
@@ -70,7 +68,6 @@
 // Columns
 //
 // Common styles for small and large grid columns
-
 .make-grid-columns();
 
 
@@ -78,7 +75,6 @@
 //
 // Columns, offsets, pushes, and pulls for extra small devices like
 // smartphones.
-
 .make-grid(xs, @grid-gutter-xs-width);
 
 
@@ -86,7 +82,6 @@
 //
 // Columns, offsets, pushes, and pulls for the small device range, from phones
 // to tablets.
-
 @media @media-screen-sm {
     .make-grid(sm, @grid-gutter-sm-width);
 }
@@ -95,7 +90,6 @@
 // Medium grid
 //
 // Columns, offsets, pushes, and pulls for the desktop device range.
-
 @media @media-screen-md {
     .make-grid(md, @grid-gutter-md-width);
 }
@@ -104,10 +98,10 @@
 // Large grid
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
-
 @media @media-screen-lg {
     .make-grid(lg, @grid-gutter-lg-width);
 }
+
 
 // Grid System
 // -----------
@@ -136,6 +130,7 @@
     }
 }
 
+
 // Creates a wrapper for a series of columns
 .make-row(@gutter: @grid-gutter-width) {
     margin-left:  (@gutter / -2);
@@ -143,11 +138,11 @@
     &:extend(.clearfix all);
 }
 
+
 // Framework grid generation
 //
 // Used only by Bootstrap to generate the correct number of grid classes given
 // any value of `@grid-columns`.
-
 .make-grid-columns() {
     // Common styles for all sizes of grid columns, widths 1-12
     .col(@index) when (@index = 1) { // initial

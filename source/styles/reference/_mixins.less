@@ -1,13 +1,10 @@
 ﻿//
-// _mixins.less contains the mixins needed for main.css
-// Author: Habanero Consulting Group
-// MIT License
+// reference/_mixins.less
 //
 
 //
 // Arrows
 //
-
 .content() {
     content: "";
     display: block;
@@ -164,6 +161,20 @@
 
 
 //
+// list-properties Create CSS class corresponding to CSS properties
+// 
+.list-properties(@property, @list, @index: length(@list)) when (@index > 0) {
+    .list-properties(@property, @list, (@index - 1));
+
+    @value: extract(@list, @index);
+
+    &-@{value} {
+        @{property}: @value;
+    }
+}
+
+
+//
 // position-absolute-all Take up all space within its non-static positioned ancestor
 //
 .position-absolute-all(@area: 0) {
@@ -192,7 +203,6 @@
 //
 // Sprites
 //
-
 .sprite() {
     background-image: url(@sprite-url);
     background-repeat: no-repeat;
