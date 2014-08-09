@@ -19,6 +19,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:test',
         'less:test',
+        'autoprefixer:test',
         'copy:test',
         'assemble:test'
     ]);
@@ -27,6 +28,7 @@ module.exports = function (grunt) {
         'clean:prod',
         'assemble:prod',
         'less:prod',
+        'autoprefixer:prod',
         'copy:prod',
         'useminPrepare',
         'concat',

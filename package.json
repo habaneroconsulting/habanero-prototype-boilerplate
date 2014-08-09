@@ -17,6 +17,7 @@
     "assemble": "~0.6",
     "grunt": "~0.4",
     "grunt-assemble": "^0.1.15",
+    "grunt-autoprefixer": "^1.0.0",
     "grunt-contrib-clean": "~0.6",
     "grunt-contrib-concat": "~0.5",
     "grunt-contrib-connect": "~0.8",

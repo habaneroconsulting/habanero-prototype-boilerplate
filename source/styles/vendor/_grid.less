@@ -157,7 +157,7 @@
 
     .col(@index, @list) when (@index > @grid-columns) { // terminal
         @{list} {
-            .box-sizing(border-box);
+            box-sizing: border-box;
             position: relative;
             // Prevent columns from collapsing when empty
             min-height: 1px;

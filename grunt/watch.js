@@ -14,7 +14,7 @@ module.exports = {
     },
     less: {
         files: ['<%= config.src %>/styles/**/*.{css,less}'],
-        tasks: ['less:test']
+        tasks: ['less:test', 'autoprefixer:test']
     },
     html: {
         files: ['<%= config.src %>/*.html'],

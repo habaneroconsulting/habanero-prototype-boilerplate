@@ -42,7 +42,7 @@
 
 //
 // background-image A background image mixin for high resolution images.
-// 
+//
 // @param {string} @file-name The file name of the background-image, including extension.
 // @param {px} @width A pixel width of the original background image.
 // @param {px} @height A pixel height of the original background image.
@@ -55,11 +55,11 @@
     @extension: ~`/(.*)\.(jpg|jpeg|png|gif|webp)/.exec(@{file-name})[2]`;
     background-image: url("@{url-project-images}/@{filename}.@{extension}");
     background-repeat: @repeat;
- 
+
     & when not (@posx = 0), not (@posy = 0) {
         background-position: @posx @posy;
     }
- 
+
     // Need to use all three resolutions since media query bubbling doesn't seem to work with string interpolation
     // @media @media-hdpi
     @media (-webkit-min-device-pixel-ratio: @screen-resolution-hdpi),
@@ -67,10 +67,6 @@
            (min-resolution: (@screen-resolution-hdpi * 1dppx)) {
         background-image: url("@{url-project-images}/@{filename}-2x.@{extension}");
         background-size: @width @height;
- 
-        & when not (@posx = 0), not (@posy = 0) {
-            background-position: (@posx * 2) (@posy * 2);
-        }
     }
 }
 
@@ -79,7 +75,7 @@
 //
 // background-image-base64 A background image mixin for high resolution images that base64 encodes
 // the file
-// 
+//
 // @param {string} @file-name The file name of the background-image, including extension.
 // @param {px} @width A pixel width of the original background image.
 // @param {px} @height A pixel height of the original background image.
@@ -92,7 +88,7 @@
     @extension: ~`/(.*)\.(jpg|jpeg|png|gif|webp)/.exec(@{file-name})[2]`;
     background: data-uri("@{url-project-images}/@{filename}") @repeat;
     background-repeat: @repeat;
-    
+
     & when not (@posx = 0), not (@posy = 0) {
         background-position: @posx @posy;
     }
@@ -104,10 +100,6 @@
            (min-resolution: (@screen-resolution-hdpi * 1dppx)) {
         background-image: data-uri("@{url-project-images}/@{filename}@2x.@{extension}");
         background-size: @width @height;
- 
-        & when not (@posx = 0), not (@posy = 0) {
-            background-position: (@posx * 2) (@posy * 2);
-        }
     }
 }
 
@@ -150,7 +142,7 @@
 
 
 //
-// Image replacement
+// image-replacement
 //
 .image-replacement() {
     display: block;
@@ -161,8 +153,22 @@
 
 
 //
+// Linear Gradients
+//
+.vertical-gradient(@start, @end) {
+    background-color: mix(@start, @end);
+    background-image: linear-gradient(to bottom, @start, @end);
+}
+
+.horizontal-gradient(@start, @end) {
+    background-color: mix(@start, @end);
+    background-image: linear-gradient(to right, @start, @end);
+}
+
+
+//
 // list-properties Create CSS class corresponding to CSS properties
-// 
+//
 .list-properties(@property, @list, @index: length(@list)) when (@index > 0) {
     .list-properties(@property, @list, (@index - 1));
 
@@ -180,7 +186,7 @@
 .position-absolute-all(@area: 0) {
     bottom: @area;
     left: @area;
-    right: @area; 
+    right: @area;
     top: @area;
 }
 
@@ -206,7 +212,7 @@
 .sprite() {
     background-image: url(@sprite-url);
     background-repeat: no-repeat;
-    
+
     // Need to use all three resolutions since media query bubbling doesn't seem to work with string interpolation
     // @media @media-hdpi
     @media (-webkit-min-device-pixel-ratio: @screen-resolution-hdpi),
