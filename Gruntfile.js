@@ -2,17 +2,16 @@
 
 module.exports = function (grunt) {
     // Load all grunt tasks
-    grunt.loadNpmTasks('assemble');
     require('load-grunt-tasks')(grunt);
     require('load-grunt-config')(grunt);
 
-    grunt.registerTask('server', [
+    grunt.registerTask('serve', [
         'build',
         'connect:test',
         'watch'
     ]);
 
-    grunt.registerTask('prodserver', [
+    grunt.registerTask('prodserve', [
         'production',
         'connect:prod'
     ]);
