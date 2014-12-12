@@ -10,7 +10,6 @@ module.exports = function (grunt, options) {
     return {
         options: {
             port: 9000,
-            hostname: 'localhost'
         },
         test: {
             options: {
