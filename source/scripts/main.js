@@ -3,6 +3,6 @@
  * Author: Habanero Consulting Group
  */
 
-(function() {
+(function () {
 	'use strict';
 })();

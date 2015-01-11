@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-    html: ['<%= config.prod %>/**/*.html']
+	html: ['<%= config.prod %>/**/*.html']
 };

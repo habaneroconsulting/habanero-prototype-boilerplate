@@ -1,36 +1,38 @@
 'use strict';
 
 var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
+	return connect.static(require('path').resolve(dir));
 };
 
 module.exports = function (grunt, options) {
-    var config = require('./config.js');
+	var config = require('./config.js');
 
-    return {
-        options: {
-            port: 9000,
-        },
-        test: {
-            options: {
-                middleware: function (connect) {
-                    return [
-                        mountFolder(connect, config.test)
-                    ];
-                },
-                open: true
-            }
-        },          
-        prod: {
-            options: {
-                keepalive: true,
-                middleware: function (connect) {
-                    return [
-                        mountFolder(connect, config.prod)
-                    ];
-                },
-                open: true
-            }
-        }
-    };
+	return {
+		options: {
+			port: 9000,
+			livereload: true,
+			hostname: 'localhost'
+		},
+		test: {
+			options: {
+				middleware: function (connect) {
+					return [
+						mountFolder(connect, config.test)
+					];
+				},
+				open: true
+			}
+		},
+		prod: {
+			options: {
+				keepalive: true,
+				middleware: function (connect) {
+					return [
+						mountFolder(connect, config.prod)
+					];
+				},
+				open: true
+			}
+		}
+	};
 };

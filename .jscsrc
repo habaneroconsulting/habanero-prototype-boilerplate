@@ -1,0 +1,43 @@
+{
+	"disallowEmptyBlocks": true,
+	"disallowKeywords": ["with"],
+	"disallowKeywordsOnNewLine": ["else"],
+	"disallowMixedSpacesAndTabs": "smart",
+	"disallowMultipleLineStrings": true,
+	"disallowNewlineBeforeBlockStatements": true,
+	"disallowTrailingComma": true,
+	"disallowTrailingWhitespace": true,
+	"requireLineBreakAfterVariableAssignment": true,
+	"requirePaddingNewlinesBeforeKeywords": [
+		"case",
+		"do",
+		"for",
+		"if",
+		"while",
+		"return",
+		"switch",
+		"try"
+	],
+	"requireSpaceAfterBinaryOperators": true,
+	"requireSpaceAfterKeywords": true,
+	"requireSpaceAfterLineComment": {
+		"allExcept": [
+			"#",
+			"="
+		]
+	},
+	"requireSpaceBeforeBinaryOperators": true,
+	"requireSpaceBeforeBlockStatements": true,
+	"requireSpaceBeforeKeywords": [
+		"else",
+		"while",
+		"catch"
+	],
+	"requireSpaceBeforeObjectValues": true,
+	"requireSpaceBetweenArguments": true,
+	"requireSpacesInConditionalExpression": true,
+	"safeContextKeyword": "_this",
+	"validateIndentation": "\t",
+	"validateParameterSeparator": ", ",
+	"validateQuoteMarks": "'"
+}

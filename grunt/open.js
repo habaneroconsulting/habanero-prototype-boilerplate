@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    server: {
-        path: 'http://localhost:<%= connect.options.port %>'
-    }
+	server: {
+		path: 'http://localhost:<%= connect.options.port %>'
+	}
 };
