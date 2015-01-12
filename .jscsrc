@@ -1,12 +1,16 @@
 {
 	"disallowEmptyBlocks": true,
 	"disallowKeywords": ["with"],
-	"disallowKeywordsOnNewLine": ["else"],
+	"disallowKeywordsOnNewLine": [
+		"catch",
+		"else"
+	],
 	"disallowMixedSpacesAndTabs": "smart",
 	"disallowMultipleLineStrings": true,
 	"disallowNewlineBeforeBlockStatements": true,
 	"disallowTrailingComma": true,
 	"disallowTrailingWhitespace": true,
+	"requireCurlyBraces": true,
 	"requireLineBreakAfterVariableAssignment": true,
 	"requirePaddingNewlinesBeforeKeywords": [
 		"case",
@@ -29,9 +33,8 @@
 	"requireSpaceBeforeBinaryOperators": true,
 	"requireSpaceBeforeBlockStatements": true,
 	"requireSpaceBeforeKeywords": [
-		"else",
-		"while",
-		"catch"
+		"catch",
+		"else"
 	],
 	"requireSpaceBeforeObjectValues": true,
 	"requireSpaceBetweenArguments": true,
