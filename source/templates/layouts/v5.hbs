@@ -3,57 +3,57 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{{#if title}} {{title}} | {{site.title}} {{else}} {{site.title}} {{/if}}</title>
+	<title>{{#if title}} {{title}} | {{site.title}} {{else}} {{site.title}} {{/if}}</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="styles/vendor/sharepoint.css">
-    <link rel="stylesheet" href="styles/sharepoint-reset.css">
+	<link rel="stylesheet" href="styles/vendor/sharepoint.css">
+	<link rel="stylesheet" href="styles/sharepoint-reset.css">
 
-    <!--[if (lt IE 10) ]>
-        <link rel="stylesheet" href="styles/ie.css" />
-    <![endif]-->
-    <!--[if (gte IE 10)|!(IE)]><!-->        
-        <!-- build:css(.tmp/less) styles/styles.min.css -->
-            <link rel="stylesheet" href="styles/style.css">
-        <!-- endbuild -->
-    <!--<![endif]-->
+	<!--[if (lt IE 10) ]>
+		<link rel="stylesheet" href="styles/ie.css" />
+	<![endif]-->
+	<!--[if (gte IE 10)|!(IE)]><!-->
+		<!-- build:css(.tmp/less) styles/styles.min.css -->
+			<link rel="stylesheet" href="styles/style.css">
+		<!-- endbuild -->
+	<!--<![endif]-->
 
-    <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-    <form id="aspnetForm">
+	<form id="aspnetForm">
 
-        {{> sharepoint-suitebar }}
-        {{> sharepoint-ribbon }}
-        
-        <div id="s4-workspace" class="ms-core-overlay">
+		{{> sharepoint-suitebar }}
+		{{> sharepoint-ribbon }}
 
-            <div class="container-fluid" id="s4-bodyContainer">
+		<div id="s4-workspace" class="ms-core-overlay">
 
-                {{> header }}
+			<div class="container-fluid" id="s4-bodyContainer">
 
-                {{> sharepoint-navigation}}
+				{{> header }}
 
-                {{> body }}
+				{{> sharepoint-navigation}}
 
-                {{> footer }}
+				{{> body }}
 
-            </div>
-            
-        </div>
+				{{> footer }}
 
-    </form>
+			</div>
 
-    <script src="scripts/vendor/jquery-1.11.0.min.js"></script>
+		</div>
 
-    <!-- build:js scripts/main.min.js -->
-        <script src="scripts/main.js"></script>
-    <!-- endbuild -->
+	</form>
 
-    <script src="scripts/sharepoint.js"></script>
+	<script src="scripts/vendor/jquery-1.11.0.min.js"></script>
+
+	<!-- build:js scripts/main.min.js -->
+		<script src="scripts/main.js"></script>
+	<!-- endbuild -->
+
+	<script src="scripts/sharepoint.js"></script>
 </body>
 </html>
