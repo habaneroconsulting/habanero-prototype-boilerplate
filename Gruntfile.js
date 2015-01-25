@@ -13,6 +13,10 @@ module.exports = function (grunt) {
 		'jscs'
 	]);
 
+	grunt.registerTask('comb', [
+		'csscomb'
+	]);
+
 	grunt.registerTask('build', [
 		'clean:test',
 		'jshint',

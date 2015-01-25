@@ -1,6 +1,6 @@
 {
   "name": "habanero-prototype-boilerplate",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "author": "Habanero Consulting Group",
   "contributors": [
     {
@@ -22,16 +22,17 @@
     "grunt-contrib-connect": "~0.9",
     "grunt-contrib-copy": "~0.7",
     "grunt-contrib-cssmin": "~0.11",
+    "grunt-contrib-jshint": "~0.11.0",
     "grunt-contrib-less": "~1.0",
     "grunt-contrib-uglify": "~0.7",
     "grunt-contrib-watch": "~0.6",
+    "grunt-csscomb": "^3.0.0",
     "grunt-jscs": "~1.2.0",
     "grunt-newer": "~1.1",
     "grunt-open": "~0.2",
     "grunt-usemin": "~3.0",
     "load-grunt-config": "^0.16.0",
-    "load-grunt-tasks": "^3.0.0",
-    "grunt-contrib-jshint": "~0.11.0"
+    "load-grunt-tasks": "^3.0.0"
   },
   "license": "MIT"
 }
