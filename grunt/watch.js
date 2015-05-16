@@ -25,6 +25,10 @@ module.exports = {
 		files: ['<%= config.src %>/scripts/**/*.js'],
 		tasks: ['newer:jshint:all', 'newer:jscs', 'newer:copy:js']
 	},
+	images: {
+		files: ['<%= config.src %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'],
+		tasks: ['newer:copy:test']
+	},
 	livereload: {
 		files: [
 			'<%= config.test %>/**/*.html',
