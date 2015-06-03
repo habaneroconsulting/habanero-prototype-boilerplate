@@ -2,7 +2,7 @@
 
 module.exports = {
 	options: {
-		config: '.jscsrc'
+		config: 'node_modules/habanero-code-style/js/.jscsrc'
 	},
 	all: {
 		src: [

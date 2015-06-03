@@ -2,7 +2,9 @@
 
 module.exports = {
 	test: {
-		options: '.csscomb.json',
+		options: {
+			config: 'node_modules/habanero-code-style/css/.csscomb.json'
+		},
 		files: [
 			{
 				expand: true,

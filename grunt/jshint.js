@@ -2,7 +2,7 @@
 
 module.exports = {
 	options: {
-		jshintrc: '.jshintrc'
+		jshintrc: 'node_modules/habanero-code-style/js/.jshintrc'
 	},
 	all: {
 		src: [
