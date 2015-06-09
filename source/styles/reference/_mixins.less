@@ -1,6 +1,6 @@
-//
-// reference/_mixins.less
-//
+/*!
+ *  refernece/_mixins.less
+ */
 
 //
 // Arrows
@@ -72,34 +72,21 @@
 
 
 //
+// background-color-states A background color mixin for setting hover and active states
 //
-// background-image-base64 A background image mixin for high resolution images that base64 encodes
-// the file
+// @param {color} @base The base color for the element
+// @param {color} @hover The hover color for the element
+// @param {color} @active The active color for the element
 //
-// @param {string} @file-name The file name of the background-image, including extension.
-// @param {px} @width A pixel width of the original background image.
-// @param {px} @height A pixel height of the original background image.
-// @param {keyword} @repeat A repeat keyword.
-// @param {px} @posx The background position x in pixels.
-// @param {px} @posy The background position y in pixels.
-//
-.background-image-base64(@file-name, @width, @height, @repeat: no-repeat, @posx: 0, @posy: 0) {
-	@filename:  ~`/(.*)\.(jpg|jpeg|png|gif|webp)/.exec(@{file-name})[1]`;
-	@extension: ~`/(.*)\.(jpg|jpeg|png|gif|webp)/.exec(@{file-name})[2]`;
-	background: data-uri("@{url-project-images}/@{filename}") @repeat;
-	background-repeat: @repeat;
+.background-color-states(@base, @hover: softlight(@base, #444), @active: softlight(@hover, #222)) {
+	background-color: @base;
 
-	& when not (@posx = 0), not (@posy = 0) {
-		background-position: @posx @posy;
+	&:hover {
+		background-color: @hover;
 	}
 
-	// Need to use all three resolutions since media query bubbling doesn't seem to work with string interpolation
-	// @media @media-hdpi
-	@media (-webkit-min-device-pixel-ratio: @screen-resolution-hdpi),
-		   (min-resolution: (@screen-resolution-hdpi * 100dpi)),
-		   (min-resolution: (@screen-resolution-hdpi * 1dppx)) {
-		background-image: data-uri("@{url-project-images}/@{filename}@2x.@{extension}");
-		background-size: @width @height;
+	&:active {
+		background-color: @active;
 	}
 }
 
@@ -129,6 +116,77 @@
 	}
 
 	zoom: 1;
+}
+
+
+//
+// color-states A background color mixin for setting hover and active states.
+//
+// @param {color} @base The base color for the element
+//
+.color-states(@base) {
+	& when (lightness(@base) = 100%) {
+		&,
+		&:visited,
+		&:hover,
+		&:active {
+			color: @base;
+		}
+	}
+
+	& when (lightness(@base) < 100%) {
+		&,
+		&:visited {
+			color: @base;
+		}
+	}
+
+	& when (lightness(@base) > 25%) and (lightness(@base) < 100%) {
+		&:hover {
+			color: darken(@base, 10%);
+		}
+
+		&:active {
+			color: darken(@base, 25%);
+		}
+	}
+
+	& when (lightness(@base) > 0%) and (lightness(@base) < 25%) {
+		&:hover {
+			color: screen(@base, #666);
+		}
+
+		&:active {
+			color: screen(@base, #999);
+		}
+	}
+
+	& when (lightness(@base) = 0%) {
+	}
+}
+
+
+//
+// color-states A background color mixin for setting hover and active states.
+//              Three argument option is mostly for setting all three values at once.
+//
+// @param {color} @base The base color for the element
+// @param {color} @hover The hover color for the element
+// @param {color} @active The active color for the element
+//
+.color-states(@base, @hover, @active: darken(@hover, 15%)) {
+	&,
+	&:visited {
+		color: @base;
+	}
+
+	&:hover {
+		color: @hover;
+	}
+
+	&:active {
+		color: @active;
+	}
 }
 
 

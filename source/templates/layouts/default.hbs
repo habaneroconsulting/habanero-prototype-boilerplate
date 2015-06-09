@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<!--[if lt IE 8]>      <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>{{#if title}} {{title}} | {{site.title}} {{else}} {{site.title}} {{/if}}</title>
+	<title>{{#if title}}{{title}} | {{site.title}}{{else}}{{site.title}}{{/if}}</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!--[if (lt IE 10) ]>
-		<link rel="stylesheet" href="styles/ie.css" />
-	<![endif]-->
-	<!--[if (gte IE 10)|!(IE)]><!-->
-		<!-- build:css(.tmp/less) styles/styles.min.css -->
-			<link rel="stylesheet" href="styles/style.css">
-		<!-- endbuild -->
-	<!--<![endif]-->
+	<!-- build:css(.tmp/less) styles/styles.min.css -->
+	<link rel="stylesheet" href="styles/style.css">
+	<!-- endbuild -->
 
 	<script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -35,7 +29,7 @@
 	<script src="scripts/vendor/jquery-1.11.0.min.js"></script>
 
 	<!-- build:js scripts/main.min.js -->
-		<script src="scripts/main.js"></script>
+	<script src="scripts/main.js"></script>
 	<!-- endbuild -->
 </body>
 </html>
