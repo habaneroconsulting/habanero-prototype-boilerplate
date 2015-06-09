@@ -1,6 +1,13 @@
+bower_components
+source/scripts/vendor
+source/styles/vendor/normalize.css
+
 node_modules
+
 test
 production
+
 .tmp
+
 *.sublime-project
 *.sublime-workspace

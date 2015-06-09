@@ -9,9 +9,7 @@ module.exports = function (grunt, options) {
 
 	return {
 		options: {
-			port: 9000,
-			livereload: true,
-			hostname: 'localhost'
+			open: true
 		},
 		test: {
 			options: {
@@ -20,7 +18,9 @@ module.exports = function (grunt, options) {
 						mountFolder(connect, config.test)
 					];
 				},
-				open: true
+				hostname: 'localhost',
+				livereload: true,
+				port: 9000
 			}
 		},
 		prod: {
@@ -30,8 +30,7 @@ module.exports = function (grunt, options) {
 					return [
 						mountFolder(connect, config.prod)
 					];
-				},
-				open: true
+				}
 			}
 		}
 	};

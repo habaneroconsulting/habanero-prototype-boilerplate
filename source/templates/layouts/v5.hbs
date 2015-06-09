@@ -9,14 +9,15 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<!-- build:css(.tmp/less) styles/styles.min.css -->
 	<link rel="stylesheet" href="styles/vendor/sharepoint.css">
 	<link rel="stylesheet" href="styles/sharepoint-reset.css">
-
-	<!-- build:css(.tmp/less) styles/styles.min.css -->
 	<link rel="stylesheet" href="styles/style.css">
 	<!-- endbuild -->
 
-	<script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
+	<!-- build:js scripts/vendor/modernizr.min.js -->
+	<script src="scripts/vendor/modernizr/modernizr.js"></script>
+	<!-- endbuild -->
 </head>
 <body>
 	<form id="aspnetForm">
@@ -40,7 +41,9 @@
 
 	</form>
 
-	<script src="scripts/vendor/jquery-1.11.0.min.js"></script>
+	<!-- build:js scripts/vendor/jquery.min.js -->
+	<script src="scripts/vendor/jquery/jquery.js"></script>
+	<!-- endbuild -->
 
 	<!-- build:js scripts/main.min.js -->
 	<script src="scripts/main.js"></script>

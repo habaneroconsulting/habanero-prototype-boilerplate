@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 	// Load all grunt tasks
 	grunt.loadNpmTasks('assemble');
 
+	require('load-grunt-tasks')(grunt);
 	require('load-grunt-config')(grunt, {
 		jitGrunt: true
 	});
@@ -36,9 +37,9 @@ module.exports = function (grunt) {
 		'autoprefixer:prod',
 		'copy:prod',
 		'useminPrepare',
-		'concat',
 		'uglify',
 		'cssmin',
+		'concat',
 		'usemin'
 	]);
 

@@ -1,0 +1,33 @@
+{
+  "name": "habanero-prototype-boilerplate",
+  "version": "1.1.0",
+  "homepage": "https://github.com/habaneroconsulting/habanero-prototype-boilerplate",
+  "authors": [
+    "Christopher Parsons <cparsons@habaneroconsulting.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "modernizr": "^2.8.3",
+    "normalize.css": "~3.0.3"
+  },
+  "install": {
+    "path": {
+      "js": "source/scripts/vendor",
+      "css": "source/styles/vendor"
+    },
+    "sources": {
+      "jquery": "bower_components/jquery/dist/jquery.js",
+      "modernizr": "bower_components/modernizr/modernizr.js",
+      "normalize.css": "bower_components/normalize.css/normalize.css"
+    }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -7,7 +7,6 @@ module.exports = {
 				expand: true,
 				cwd: '<%= config.src %>/styles/',
 				src: [
-					'**/*.css',
 					'**/*.less',
 					'!**/_*.less',
 					'!_**/*'
@@ -23,7 +22,6 @@ module.exports = {
 				expand: true,
 				cwd: '<%= config.src %>/styles/',
 				src: [
-					'**/*.css',
 					'**/*.less',
 					'!**/_*.less',
 					'!_**/*'
