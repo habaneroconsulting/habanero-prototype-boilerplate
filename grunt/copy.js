@@ -12,6 +12,7 @@ module.exports = {
 				'*.{ico,png,txt}',
 				'images/**/*',
 				'styles/fonts/**/*.*',
+				'styles/vendor/**/*.css',
 				'scripts/data/**/*.*',
 				'scripts/**/*.*'
 			]
@@ -27,6 +28,7 @@ module.exports = {
 				'*.{ico,png,txt}',
 				'images/**/*',
 				'styles/fonts/**/*.*',
+				'styles/vendor/**/*.css',
 				'scripts/data/**/*.*',
 				'scripts/**/*.*'
 			]
