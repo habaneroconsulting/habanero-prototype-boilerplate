@@ -4,16 +4,16 @@ module.exports = {
 	options: {
 		map: true
 	},
-	test: {
+	build: {
 		files: [
 			{
 				expand: true,
-				cwd: '<%= config.test %>/styles/',
+				cwd: '<%= config.build %>/styles/',
 				src: [
 					'**/*.css',
 					'!vendor/**/*.css'
 				],
-				dest: '<%= config.test %>/styles/',
+				dest: '<%= config.build %>/styles/',
 				ext: '.css'
 			}
 		]

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	test: {
+	build: {
 		files: [
 			{
 				expand: true,
@@ -11,7 +11,7 @@ module.exports = {
 					'!**/_*.less',
 					'!_**/*'
 				],
-				dest: '<%= config.test %>/styles/',
+				dest: '<%= config.build %>/styles/',
 				ext: '.css'
 			}
 		]

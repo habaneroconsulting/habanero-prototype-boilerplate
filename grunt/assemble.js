@@ -5,16 +5,15 @@ module.exports = {
 		data: '<%= config.src %>/data/*.{json,yml}',
 		flatten: true,
 		layout: '<%= config.src %>/templates/layouts/default.hbs',
-		partials: '<%= config.src %>/templates/partials/**/*.hbs',
-		plugins: ['assemble-contrib-permalinks', 'assemble-contrib-sitemap']
+		partials: '<%= config.src %>/templates/partials/**/*.hbs'
 	},
-	test: {
+	build: {
 		files: [
 			{
 				expand: true,
 				cwd: '<%= config.src %>/pages/',
 				src: ['**/*.hbs'],
-				dest: '<%= config.test %>'
+				dest: '<%= config.build %>'
 			}
 		]
 	},

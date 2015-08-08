@@ -1,13 +1,13 @@
 'use strict';
 
 module.exports = {
-	test: {
+	build: {
 		files: [{
 			dot: true,
 			src: [
 				'.tmp',
-				'<%= config.test %>/*',
-				'!<%= config.test %>/.git*'
+				'<%= config.build %>/*',
+				'!<%= config.build %>/.git*'
 			]
 		}]
 	},

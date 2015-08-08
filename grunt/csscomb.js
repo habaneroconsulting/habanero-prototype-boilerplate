@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	test: {
+	build: {
 		options: {
 			config: 'node_modules/habanero-code-style/css/.csscomb.json'
 		},

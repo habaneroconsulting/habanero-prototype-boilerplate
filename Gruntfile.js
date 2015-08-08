@@ -19,13 +19,13 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('build', [
-		'clean:test',
+		'clean:build',
 		'jshint',
 		'jscs',
-		'less:test',
-		'autoprefixer:test',
-		'copy:test',
-		'assemble:test'
+		'less:build',
+		'autoprefixer:build',
+		'copy:build',
+		'assemble:build'
 	]);
 
 	grunt.registerTask('production', [
@@ -45,13 +45,18 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('serve', [
 		'build',
-		'connect:test',
+		'connect:build',
 		'watch'
 	]);
 
 	grunt.registerTask('prodserve', [
 		'production',
 		'connect:prod'
+	]);
+
+	grunt.registerTask('deploy', [
+		'production',
+		'gh-pages'
 	]);
 
 	grunt.registerTask('default', [

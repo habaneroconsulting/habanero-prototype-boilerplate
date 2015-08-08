@@ -1,19 +1,18 @@
 'use strict';
 
 module.exports = {
-	test: {
+	build: {
 		files: [{
 			expand: true,
 			dot: true,
 			cwd: '<%= config.src %>',
-			dest: '<%= config.test %>',
+			dest: '<%= config.build %>',
 			src: [
 				'**/*.html',
 				'*.{ico,png,txt}',
 				'images/**/*',
 				'styles/fonts/**/*.*',
 				'styles/vendor/**/*.css',
-				'scripts/data/**/*.*',
 				'scripts/**/*.*'
 			]
 		}]
@@ -29,7 +28,6 @@ module.exports = {
 				'images/**/*',
 				'styles/fonts/**/*.*',
 				'styles/vendor/**/*.css',
-				'scripts/data/**/*.*',
 				'scripts/**/*.*'
 			]
 		}]
@@ -39,7 +37,7 @@ module.exports = {
 			expand: true,
 			dot: true,
 			cwd: '<%= config.src %>',
-			dest: '<%= config.test %>',
+			dest: '<%= config.build %>',
 			src: [
 				'scripts/**/*.*'
 			]
@@ -50,7 +48,7 @@ module.exports = {
 			expand: true,
 			dot: true,
 			cwd: '<%= config.src %>',
-			dest: '<%= config.test %>',
+			dest: '<%= config.build %>',
 			src: [
 				'**/*.html'
 			]

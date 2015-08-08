@@ -2,6 +2,6 @@
 
 module.exports = {
 	src: 'source',
-	test: 'test',
+	build: 'build',
 	prod: 'production'
 };

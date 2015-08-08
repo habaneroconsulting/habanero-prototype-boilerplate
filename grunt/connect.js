@@ -11,11 +11,11 @@ module.exports = function (grunt, options) {
 		options: {
 			open: true
 		},
-		test: {
+		build: {
 			options: {
 				middleware: function (connect) {
 					return [
-						mountFolder(connect, config.test)
+						mountFolder(connect, config.build)
 					];
 				},
 				hostname: 'localhost',

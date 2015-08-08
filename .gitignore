@@ -1,13 +1,16 @@
+# Vendor files
 bower_components
 source/scripts/vendor
 source/styles/vendor/normalize.css
 
+# Node Modules
 node_modules
 
-test
+# Generated files
+build
 production
-
 .tmp
 
+# Sublime Project files
 *.sublime-project
 *.sublime-workspace

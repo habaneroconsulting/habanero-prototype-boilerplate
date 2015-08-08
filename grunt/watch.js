@@ -6,16 +6,16 @@ module.exports = {
 		nospawn: true
 	},
 	assembleGlobal: {
-		files: ['<%= config.src %>/templates/**/*.{md,hbs,yml}'],
-		tasks: ['assemble:test']
+		files: ['<%= config.src %>/{data,templates}/**/*.{md,hbs,yml}'],
+		tasks: ['assemble:build']
 	},
 	assemble: {
-		files: ['<%= config.src %>/{content,data,pages}/**/*.{md,hbs,yml}'],
-		tasks: ['newer:assemble:test']
+		files: ['<%= config.src %>/pages/**/*.{md,hbs,yml}'],
+		tasks: ['assemble:build']
 	},
 	less: {
 		files: ['<%= config.src %>/styles/**/*.{css,less}'],
-		tasks: ['less:test', 'autoprefixer:test']
+		tasks: ['less:build', 'autoprefixer:build']
 	},
 	html: {
 		files: ['<%= config.src %>/*.html'],
@@ -27,14 +27,14 @@ module.exports = {
 	},
 	images: {
 		files: ['<%= config.src %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'],
-		tasks: ['newer:copy:test']
+		tasks: ['newer:copy:build']
 	},
 	livereload: {
 		files: [
-			'<%= config.test %>/**/*.html',
-			'{.tmp,<%= config.test %>}/styles/**/*.css',
-			'{.tmp,<%= config.test %>}/scripts/**/*.js',
-			'<%= config.test %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
+			'<%= config.build %>/**/*.html',
+			'{.tmp,<%= config.build %>}/styles/**/*.css',
+			'{.tmp,<%= config.build %>}/scripts/**/*.js',
+			'<%= config.build %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
 		]
 	}
 };
