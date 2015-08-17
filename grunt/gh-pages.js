@@ -3,7 +3,10 @@
 module.exports = {
 	options: {
 		base: '<%= config.prod %>',
-		clone: '.tmp/grunt-gh-pages/gh-pages/repo'
+		branch: 'gh-pages',
+		// branch: 'master',
+		clone: '.tmp/deploy/repo',
+		repo: 'https://github.com/habaneroconsulting/habanero-prototype-boilerplate.git'
 	},
 	src: [
 		'**/*',
