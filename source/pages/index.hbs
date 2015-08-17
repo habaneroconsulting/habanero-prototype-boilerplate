@@ -3,10 +3,22 @@ title: Home
 ---
 {{#markdown}}
 
-# {{title}}
+# Habanero Prototype Boilerplate [![devDependency Status](https://david-dm.org/habaneroconsulting/habanero-prototype-boilerplate/dev-status.svg)](https://david-dm.org/habaneroconsulting/habanero-prototype-boilerplate#info=devDependencies)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue quam et accumsan tincidunt. Quisque ut velit ac lacus blandit cursus in in tortor. Vestibulum rhoncus nec massa eu mattis. Fusce dictum laoreet enim, a elementum est blandit a. Aenean ut pharetra nisi, non porttitor enim. Maecenas dignissim sem eget lacinia mattis. Vivamus consectetur nulla vel mauris ullamcorper, scelerisque accumsan est faucibus. Fusce gravida non tortor id viverra. Nulla rutrum adipiscing elit et congue. Proin aliquam placerat felis quis volutpat.
+A simple boilerplate to start off prototyping. Built with HTML5 Boilerplate, Normalize, Twitter Bootstrap, Assemble, and Grunt.
 
-Ut molestie fermentum imperdiet. Morbi interdum ipsum ac felis dapibus suscipit. Pellentesque aliquet placerat libero in aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas auctor sed velit vel bibendum. Cras in tellus dictum, posuere libero eu, fermentum lacus. Integer molestie sagittis diam sit amet blandit. Nulla et mi ornare, lobortis nulla at, volutpat elit.
+## Build Instructions
+
+1. Install [NodeJS](http://nodejs.org/).
+
+2. Run `npm install` at the root project folder.
+
+    This will read the *package.json* file and pull in all required node modules and put into a directory called *node_modules*.
+
+3. Use `npm` to build:
+
+    - `npm run build` will create a debug/test version of the site
+    - `npm run production` will create a production version of the site (i.e. JavaScript and CSS concatenated and minified)
+    - `npm start` will create the debug/test version of the site, then create a simple testing server
 
 {{/markdown}}

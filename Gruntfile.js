@@ -28,19 +28,25 @@ module.exports = function (grunt) {
 		'assemble:build'
 	]);
 
+	grunt.registerTask('useminTasks', [
+		'useminPrepare',
+		'cssmin:generated',
+		'uglify:generated',
+		'concat:generated',
+		'string-replace',
+		'filerev',
+		'usemin'
+	]);
+
 	grunt.registerTask('production', [
 		'clean:prod',
-		'jshint',
-		'jscs',
+		'test',
 		'assemble:prod',
 		'less:prod',
 		'autoprefixer:prod',
 		'copy:prod',
-		'useminPrepare',
-		'uglify',
-		'cssmin',
-		'concat',
-		'usemin'
+		'useminTasks',
+		'htmlmin'
 	]);
 
 	grunt.registerTask('serve', [
