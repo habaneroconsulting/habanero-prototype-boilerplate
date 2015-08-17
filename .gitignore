@@ -10,6 +10,7 @@ node_modules
 build
 production
 .tmp
+.DS_Store
 
 # Sublime Project files
 *.sublime-project
