@@ -9,7 +9,7 @@ module.exports = {
 			dest: '<%= config.build %>',
 			src: [
 				'**/*.html',
-				'*.{ico,png,txt}',
+				'*.{config,ico,png,txt,xml}',
 				'images/**/*',
 				'styles/fonts/**/*.*',
 				'styles/vendor/**/*.css',
@@ -24,7 +24,7 @@ module.exports = {
 			cwd: '<%= config.src %>',
 			dest: '<%= config.prod %>',
 			src: [
-				'*.{ico,png,txt}',
+				'*.{config,ico,png,txt,xml}',
 				'images/**/*',
 				'styles/fonts/**/*.*',
 				'styles/vendor/**/*.css',
