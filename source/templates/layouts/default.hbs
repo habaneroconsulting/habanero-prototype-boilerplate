@@ -4,10 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-	<title>{{#if title}}{{title}} | {{site.title}}{{else}}{{site.title}}{{/if}}</title>
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{{> head-opengraph }}
 
 	<!-- build:css(.tmp/less) styles/styles.min.css -->
 	<link rel="stylesheet" href="styles/style.css">
@@ -18,13 +17,15 @@
 	<!-- endbuild -->
 </head>
 <body>
+	{{> body-gtm }}
+
 	<div class="container-fluid">
 
-		{{> header }}
+		{{> body-header }}
 
 		{{> body }}
 
-		{{> footer }}
+		{{> body-footer }}
 
 	</div>
 

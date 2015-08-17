@@ -1,0 +1,49 @@
+{{#if site.title}}
+<title>{{ site.title }}</title>
+{{/if}}
+
+{{#if site.description}}
+<meta name="description" content="{{ site.description }}" />
+{{/if}}
+
+
+{{!-- Twitter Card data --}}
+
+{{#if site.twitter.card}}
+<meta name="twitter:card" value="{{ site.twitter.card }}" />
+{{/if}}
+
+{{#if site.twitter.site}}
+<meta name="twitter:site" content="{{ site.twitter.site }}" />
+{{/if}}
+
+{{#if site.image}}
+<meta name="twitter:image:src" content="{{ site.image }}" />
+{{/if}}
+
+
+{{!-- Open Graph data --}}
+
+{{#if site.opengraph.title}}
+<meta property="og:title" content="{{ site.opengraph.title }}" />
+{{/if}}
+
+{{#if site.opengraph.type}}
+<meta property="og:type" content="{{ site.opengraph.type }}" />
+{{/if}}
+
+{{#if site.opengraph.url}}
+<meta property="og:url" content="{{ site.opengraph.url }}" />
+{{/if}}
+
+{{#if site.opengraph.image}}
+<meta property="og:image" content="{{ site.opengraph.image }}" />
+{{/if}}
+
+{{#if site.opengraph.sitename}}
+<meta property="og:site_name" content="{{ site.opengraph.sitename }}" />
+{{/if}}
+
+{{#if site.opengraph.locale}}
+<meta property="og:locale" content="{{ site.opengraph.locale }}" />
+{{/if}}

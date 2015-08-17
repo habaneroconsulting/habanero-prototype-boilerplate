@@ -1,4 +1,25 @@
+# Title should be around 50-60 characters
 title: Habanero Prototype Boilerplate
+
+# Description should be around 155 characters
+description: "The Habanero Prototype Boilerplate is a simple template to help you get started."
+
+keywords: "html, JavaScript, CSS, LESS, boilerplate"
 
 emails:
 	support: support@habaneroconsulting.com
+
+# image: "habaneroconsulting.github.io/habanero-prototype-boilerplate/opengraph.png"
+
+# twitter:
+#   card: "product"
+#   site: "@HabaneroConsult"
+
+opengraph:
+  title: "Habanero Prototype Boilerplate"
+  type: "website"
+  sitename: "Habanero Prototype Boilerplate"
+  url: "http://habaneroconsulting.github.io/habanero-prototype-boilerplate"
+  locale: "en_US"
+
+gtm: ""
