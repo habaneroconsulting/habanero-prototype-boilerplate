@@ -12,9 +12,9 @@ module.exports = {
 			port: 9000
 		}
 	},
-	prod: {
+	production: {
 		options: {
-			base: '<%= config.prod %>',
+			base: '<%= config.production %>',
 			keepalive: true
 		}
 	}

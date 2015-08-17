@@ -3,8 +3,8 @@
 module.exports = {
 	options: {
 		assetsDirs: [
-			'<%= config.prod %>',
-			'<%= config.prod %>/images'
+			'<%= config.production %>',
+			'<%= config.production %>/images'
 		],
 		patterns: {
 			html_srcset: [
@@ -15,7 +15,7 @@ module.exports = {
 			]
 		}
 	},
-	html: ['<%= config.prod %>/**/*.html'],
-	html_srcset: ['<%= config.prod %>/**/*.html'],
-	css: ['<%= config.prod %>/styles/**/*.css']
+	html: ['<%= config.production %>/**/*.html'],
+	html_srcset: ['<%= config.production %>/**/*.html'],
+	css: ['<%= config.production %>/styles/**/*.css']
 };

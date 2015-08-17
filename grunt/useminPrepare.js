@@ -1,9 +1,8 @@
 'use strict';
 
 module.exports = {
-	html: '<%= config.prod %>/index.html',
 	options: {
-		dest: '<%= config.prod %>',
+		dest: '<%= config.production %>',
 		flow: {
 			html: {
 				steps: {
@@ -13,5 +12,6 @@ module.exports = {
 				post: {}
 			}
 		}
-	}
+	},
+	html: '<%= config.production %>/index.html'
 };

@@ -11,9 +11,9 @@ module.exports = {
 		files: [
 			{
 				expand: true,
-				cwd: '<%= config.prod %>',
+				cwd: '<%= config.production %>',
 				src: ['**/*.html'],
-				dest: '<%= config.prod %>'
+				dest: '<%= config.production %>'
 			}
 		]
 	}

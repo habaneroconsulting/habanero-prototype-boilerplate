@@ -17,12 +17,12 @@ module.exports = {
 			]
 		}]
 	},
-	prod: {
+	production: {
 		files: [{
 			expand: true,
 			dot: true,
 			cwd: '<%= config.src %>',
-			dest: '<%= config.prod %>',
+			dest: '<%= config.production %>',
 			src: [
 				'*.{config,ico,png,txt,xml}',
 				'images/**/*',

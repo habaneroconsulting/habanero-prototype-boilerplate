@@ -18,7 +18,7 @@ module.exports = {
 			}
 		]
 	},
-	prod: {
+	production: {
 		files: [
 			{
 				expand: true,

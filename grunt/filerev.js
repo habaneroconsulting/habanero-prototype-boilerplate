@@ -7,6 +7,6 @@ module.exports = {
 		length: 8
 	},
 	production: {
-		src: '<%= config.prod %>/**/*.{jpg,jpeg,gif,png,webp,eot,ttf,woff,svg,js,css}'
+		src: '<%= config.production %>/**/*.{jpg,jpeg,gif,png,webp,eot,ttf,woff,svg,js,css}'
 	}
 };

@@ -17,13 +17,13 @@ module.exports = {
 			}
 		]
 	},
-	prod: {
+	production: {
 		files: [
 			{
 				expand: true,
 				cwd: '<%= config.src %>/pages/',
 				src: ['**/*.hbs'],
-				dest: '<%= config.prod %>'
+				dest: '<%= config.production %>'
 			}
 		]
 	}

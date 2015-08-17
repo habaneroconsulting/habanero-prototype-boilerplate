@@ -11,13 +11,13 @@ module.exports = {
 			]
 		}]
 	},
-	prod: {
+	production: {
 		files: [{
 			dot: true,
 			src: [
 				'.tmp',
-				'<%= config.prod %>/*',
-				'!<%= config.prod %>/.git*'
+				'<%= config.production %>/*',
+				'!<%= config.production %>/.git*'
 			]
 		}]
 	},

@@ -20,8 +20,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [
 		'clean:build',
-		'jshint',
-		'jscs',
+		'test',
 		'less:build',
 		'autoprefixer:build',
 		'copy:build',
@@ -39,12 +38,12 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('production', [
-		'clean:prod',
+		'clean:production',
 		'test',
-		'assemble:prod',
-		'less:prod',
-		'autoprefixer:prod',
-		'copy:prod',
+		'assemble:production',
+		'less:production',
+		'autoprefixer:production',
+		'copy:production',
 		'useminTasks',
 		'htmlmin'
 	]);
@@ -57,12 +56,13 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('prodserve', [
 		'production',
-		'connect:prod'
+		'connect:production'
 	]);
 
 	grunt.registerTask('deploy', [
 		'production',
-		'gh-pages'
+		'gh-pages',
+		'open:production'
 	]);
 
 	grunt.registerTask('default', [

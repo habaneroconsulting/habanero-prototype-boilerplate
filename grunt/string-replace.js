@@ -4,9 +4,9 @@ module.exports = {
 	options: {
 		map: true
 	},
-	prod: {
+	production: {
 		files: {
-			'<%= config.prod %>/styles/styles.min.css': '<%= config.prod %>/styles/styles.min.css'
+			'<%= config.production %>/styles/styles.min.css': '<%= config.production %>/styles/styles.min.css'
 		},
 		options: {
 			replacements: [
