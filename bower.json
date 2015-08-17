@@ -9,7 +9,6 @@
   "private": true,
   "dependencies": {
     "jquery": "^2.1.4",
-    "modernizr": "^2.8.3",
     "normalize.css": "~3.0.3"
   },
   "install": {
@@ -19,7 +18,6 @@
     },
     "sources": {
       "jquery": "bower_components/jquery/dist/jquery.js",
-      "modernizr": "bower_components/modernizr/modernizr.js",
       "normalize.css": "bower_components/normalize.css/normalize.css"
     }
   },
