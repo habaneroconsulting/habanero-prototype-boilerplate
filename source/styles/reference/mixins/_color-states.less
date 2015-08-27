@@ -1,0 +1,92 @@
+/*! refernece/mixins/_color-states.less */
+
+
+//
+// background-color-states A background color mixin for setting hover and active states
+//
+// @param {color} @base The base color for the element
+// @param {color} @hover The hover color for the element
+// @param {color} @active The active color for the element
+//
+.background-color-states(@base, @hover: softlight(@base, #444), @active: softlight(@hover, #222)) {
+	background-color: @base;
+
+	&:hover {
+		background-color: @hover;
+	}
+
+	&:active {
+		background-color: @active;
+	}
+}
+
+
+//
+// color-states A background color mixin for setting hover and active states.
+//
+// @param {color} @base The base color for the element
+//
+.color-states(@base) {
+	& when (lightness(@base) = 100%) {
+		&,
+		&:visited,
+		&:hover,
+		&:active {
+			color: @base;
+		}
+	}
+
+	& when (lightness(@base) < 100%) {
+		&,
+		&:visited {
+			color: @base;
+		}
+	}
+
+	& when (lightness(@base) > 25%) and (lightness(@base) < 100%) {
+		&:hover {
+			color: darken(@base, 10%);
+		}
+
+		&:active {
+			color: darken(@base, 25%);
+		}
+	}
+
+	& when (lightness(@base) > 0%) and (lightness(@base) < 25%) {
+		&:hover {
+			color: screen(@base, #666);
+		}
+
+		&:active {
+			color: screen(@base, #999);
+		}
+	}
+
+	& when (lightness(@base) = 0%) {
+	}
+}
+
+
+//
+// color-states A background color mixin for setting hover and active states.
+//              Three argument option is mostly for setting all three values at once.
+//
+// @param {color} @base The base color for the element
+// @param {color} @hover The hover color for the element
+// @param {color} @active The active color for the element
+//
+.color-states(@base, @hover, @active: darken(@hover, 15%)) {
+	&,
+	&:visited {
+		color: @base;
+	}
+
+	&:hover {
+		color: @hover;
+	}
+
+	&:active {
+		color: @active;
+	}
+}

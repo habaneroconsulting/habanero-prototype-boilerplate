@@ -1,0 +1,82 @@
+/*! refernece/mixins/_images.less */
+
+//
+// background-image A background image mixin for high resolution images.
+//
+// @param {string} @file-name The file name of the background-image, including extension.
+// @param {px} [@width] A pixel width of the original background image.
+// @param {px} [@height] A pixel height of the original background image.
+// @param {keyword} [@repeat] A repeat keyword.
+// @param {px} [@posx] The background position x in pixels.
+// @param {px} [@posy] The background position y in pixels.
+// @param {bool} [@base64] Whether or not the image should be inlined.
+//
+.background-image(@file-name, @width: 0, @height: 0, @repeat: no-repeat, @posx: 0, @posy: 0, @base64: false) {
+	@filename:  ~`/(.*)\.(bmp|gif|jpg|jpeg|png|webp)/.exec(@{file-name})[1]`;
+	@extension: ~`/(.*)\.(bmp|gif|jpg|jpeg|png|webp)/.exec(@{file-name})[2]`;
+
+	& when (@base64 = false) {
+		background-image: url("@{url-project-images}/@{filename}.@{extension}");
+	}
+
+	& when (@base64 = true) {
+		background-image: data-uri("@{url-project-images}/@{filename}.@{extension}");
+	}
+
+	background-repeat: @repeat;
+
+	& when not (@posx = 0), not (@posy = 0) {
+		background-position: @posx @posy;
+	}
+
+	// Need to use all three resolutions since media query bubbling doesn't seem
+	// to work with string interpolation
+	@media (min-resolution: (@screen-resolution-hdpi * 1dppx)) {
+		& when (@base64 = false) {
+			background-image: url("@{url-project-images}/@{filename}@2x.@{extension}");
+		}
+
+		& when (@base64 = true) {
+			background-image: data-uri("@{url-project-images}/@{filename}@2x.@{extension}");
+		}
+
+		& when not (@width = 0), not (@height = 0) {
+			background-size: @width @height;
+		}
+	}
+}
+
+
+//
+// Sprites
+//
+.sprite() {
+	background-image: url(@sprite-url);
+	background-repeat: no-repeat;
+
+	// Need to use all three resolutions since media query bubbling doesn't seem
+	// to work with string interpolation
+	@media (min-resolution: (@screen-resolution-hdpi * 1dppx)) {
+		.retina-sprite();
+	}
+}
+
+.sprite-position(@x, @y) {
+	background-position: (-(@x - 1)*@sprite-column-width) (-(@y - 1)*@sprite-column-width);
+}
+
+.sprite(@x, @y) {
+	.sprite();
+	.sprite-position(@x, @y);
+}
+
+.sprite(@x, @y, @width, @height, @url: @sprite-url) {
+	.sprite(@x, @y);
+	height: @height;
+	width: @width;
+}
+
+.retina-sprite() {
+	background-image: url(@sprite-2x-url);
+	background-size: @sprite-size;
+}

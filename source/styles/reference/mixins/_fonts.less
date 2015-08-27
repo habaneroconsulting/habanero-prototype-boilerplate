@@ -1,0 +1,15 @@
+/*! refernece/mixins/_fonts.less */
+
+.font-face (@family, @filename) {
+	@font-face {
+		src: url('../fonts/@{filename}.eot');
+		src: url('../fonts/@{filename}.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/@{filename}.woff') format('woff'),
+			 url('../fonts/@{filename}.ttf') format('truetype'),
+			 url('../fonts/@{filename}.svg') format('svg');
+
+		font-family: '@{family}';
+		font-style: normal;
+		font-weight: normal;
+	}
+}
