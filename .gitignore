@@ -1,7 +1,5 @@
 # Vendor files
 bower_components
-source/scripts/vendor
-source/styles/vendor/normalize.css
 
 # Node Modules
 node_modules

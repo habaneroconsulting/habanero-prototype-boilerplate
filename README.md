@@ -15,3 +15,4 @@ A simple boilerplate to start off prototyping. Built with HTML5 Boilerplate, Nor
     - `npm run build` will create a debug/test version of the site
     - `npm run production` will create a production version of the site (i.e. JavaScript and CSS concatenated and minified)
     - `npm start` will create the debug/test version of the site, then create a simple testing server
+    - `npm run bower` will download the latest front end packages to the bower_components folder and copy them into the corresponding vendor folders. This will overwrite any changes.

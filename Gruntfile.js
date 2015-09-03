@@ -14,13 +14,18 @@ module.exports = function (grunt) {
 		'jscs'
 	]);
 
+	grunt.registerTask('test-build', [
+		'test',
+		'build',
+		'production'
+	]);
+
 	grunt.registerTask('comb', [
 		'csscomb'
 	]);
 
 	grunt.registerTask('build', [
 		'clean:build',
-		'test',
 		'less:build',
 		'autoprefixer:build',
 		'copy:build',
@@ -39,7 +44,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('production', [
 		'clean:production',
-		'test',
 		'assemble:production',
 		'less:production',
 		'autoprefixer:production',

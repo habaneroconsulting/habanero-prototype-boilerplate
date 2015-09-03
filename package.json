@@ -17,7 +17,6 @@
   "scripts": {
     "bower": "bower-installer",
     "build": "grunt build",
-    "install": "bower-installer",
     "production": "grunt production",
     "start": "grunt serve"
   },

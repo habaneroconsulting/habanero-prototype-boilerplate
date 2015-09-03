@@ -8,24 +8,20 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "habanero-style-utilities": "~0.2.1",
     "jquery": "^2.1.4",
     "normalize.css": "~3.0.3"
   },
   "install": {
     "path": {
+      "css": "source/styles/vendor",
       "js": "source/scripts/vendor",
-      "css": "source/styles/vendor"
+      "less": "source/styles/reference/{version}"
     },
     "sources": {
+      "habanero-style-utilities": "bower_components/habanero-style-utilities/reference/**",
       "jquery": "bower_components/jquery/dist/jquery.js",
       "normalize.css": "bower_components/normalize.css/normalize.css"
     }
-  },
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+  }
 }
