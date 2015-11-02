@@ -1,0 +1,6 @@
+/*! reference/mixins/_typography.scss */
+
+@mixin font-size($pixels) {
+	font-size: $pixels;
+	font-size: $pixels / $font-size-base * 1rem;
+}

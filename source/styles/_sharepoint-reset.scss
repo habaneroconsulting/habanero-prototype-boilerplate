@@ -1,7 +1,7 @@
-/*! sharepoint-reset.less */
+/*! sharepoint-reset.scss */
 
-@import (reference) "reference/_mixins.less";
-@import (reference) "reference/_variables.less";
+@import "reference/mixins";
+@import "reference/variables";
 
 
 #s4-bodyContainer {

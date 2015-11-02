@@ -1,0 +1,10 @@
+/*! reference/mixins/_underlines.scss */
+
+//
+// underline A thin underline for inline links.
+//
+// @param {color} @color The colour of the underline.
+//
+@mixin underline($color: #333333) {
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, $color 2px, $color 3px, rgba(0, 0, 0, 0) 3px);
+}

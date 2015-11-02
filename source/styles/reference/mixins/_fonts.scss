@@ -1,0 +1,13 @@
+/*! refernece/mixins/_fonts.scss */
+
+@mixin font-face($family, $filename, $style, $weight) {
+	@font-face {
+		src: url('../fonts/#{$filename}.eot');
+		src: url('../fonts/#{$filename}.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/#{$filename}.woff') format('woff');
+
+		font-family: '#{$family}';
+		font-style: $style;
+		font-weight: $weight;
+	}
+}

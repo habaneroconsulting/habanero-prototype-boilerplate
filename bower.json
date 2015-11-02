@@ -1,6 +1,6 @@
 {
   "name": "habanero-prototype-boilerplate",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "homepage": "https://github.com/habaneroconsulting/habanero-prototype-boilerplate",
   "authors": [
     "Christopher Parsons <cparsons@habaneroconsulting.com>"
@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "habanero-style-utilities": "~0.2.1",
+    "habanero-style-utilities": "~0.3.0",
     "jquery": "^2.1.4",
     "normalize.css": "~3.0.3"
   },
@@ -16,7 +16,7 @@
     "path": {
       "css": "source/styles/vendor",
       "js": "source/scripts/vendor",
-      "less": "source/styles/reference/{version}"
+      "sass": "source/styles/reference/{version}"
     },
     "sources": {
       "habanero-style-utilities": "bower_components/habanero-style-utilities/reference/**",

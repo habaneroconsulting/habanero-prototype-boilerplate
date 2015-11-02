@@ -1,0 +1,15 @@
+/*! components/_block.sass */
+
+@import "../reference/reference";
+
+$block: "block";
+
+.#{$block} {
+	&__element {
+
+	}
+
+	&--modifier {
+
+	}
+}

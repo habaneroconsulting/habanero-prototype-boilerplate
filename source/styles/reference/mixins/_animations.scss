@@ -1,0 +1,16 @@
+/*! reference/mixins/_animations.scss */
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@mixin fadein ($speed: 0.5s) {
+	animation-duration: $speed;
+	animation-name: fadein;
+}

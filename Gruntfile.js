@@ -26,7 +26,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [
 		'clean:build',
-		'less:build',
+		'sass:build',
 		'autoprefixer:build',
 		'copy:build',
 		'assemble:build'
@@ -45,7 +45,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('production', [
 		'clean:production',
 		'assemble:production',
-		'less:production',
+		'sass:production',
 		'autoprefixer:production',
 		'copy:production',
 		'useminTasks',

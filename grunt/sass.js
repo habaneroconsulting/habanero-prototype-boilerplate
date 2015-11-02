@@ -7,8 +7,8 @@ module.exports = {
 				expand: true,
 				cwd: '<%= config.src %>/styles/',
 				src: [
-					'**/*.less',
-					'!**/_*.less',
+					'**/*.scss',
+					'!**/_*.scss',
 					'!_**/*'
 				],
 				dest: '<%= config.build %>/styles/',
@@ -22,11 +22,11 @@ module.exports = {
 				expand: true,
 				cwd: '<%= config.src %>/styles/',
 				src: [
-					'**/*.less',
-					'!**/_*.less',
+					'**/*.scss',
+					'!**/_*.scss',
 					'!_**/*'
 				],
-				dest: '.tmp/less/styles/',
+				dest: '.tmp/scss/styles/',
 				ext: '.css'
 			}
 		]

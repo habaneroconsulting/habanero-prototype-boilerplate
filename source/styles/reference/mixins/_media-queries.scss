@@ -1,0 +1,66 @@
+/*! refernece/mixins/_media-queries.scss */
+
+
+/*#region Minimum screen width mixins (preferred) */
+
+@mixin media-min-sm {
+	@media #{$media-screen-min-sm} {
+		@content;
+	}
+}
+
+@mixin media-min-md {
+	@media #{$media-screen-min-md} {
+		@content;
+	}
+}
+
+@mixin media-min-lg {
+	@media #{$media-screen-min-lg} {
+		@content;
+	}
+}
+
+@mixin media-min-xl {
+	@media #{$media-screen-min-xl} {
+		@content;
+	}
+}
+
+/*#endregion */
+
+
+/*#region Maximum screen width mixins */
+
+@mixin media-max-xs {
+	@media #{$media-screen-max-xs} {
+		@content;
+	}
+}
+
+@mixin media-max-sm {
+	@media #{$media-screen-max-sm} {
+		@content;
+	}
+}
+
+@mixin media-max-md {
+	@media #{$media-screen-max-md} {
+		@content;
+	}
+}
+
+@mixin media-max-lg {
+	@media #{$media-screen-max-lg} {
+		@content;
+	}
+}
+
+/*#endregion */
+
+
+@mixin media-hdpi {
+	@media #{$media-hdpi} {
+		@content;
+	}
+}

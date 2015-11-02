@@ -1,0 +1,45 @@
+/*! refernece/mixins/_color-states.scss */
+
+
+//
+// background-color-states A background color mixin for setting hover and active states
+//
+// $param {color} $base The base color for the element
+// $param {color} $hover The hover color for the element
+// $param {color} $active The active color for the element
+//
+@mixin background-color-states($base, $hover: darken($base, 10%), $active: darken($base, 20%)) {
+	background-color: $base;
+
+	&:hover {
+		background-color: $hover;
+	}
+
+	&:active {
+		background-color: $active;
+	}
+}
+
+
+//
+// color-states A background color mixin for setting hover and active states.
+//              Three argument option is mostly for setting all three values at once.
+//
+// $param {color} $base The base color for the element
+// $param {color} $hover The hover color for the element
+// $param {color} $active The active color for the element
+//
+@mixin color-states($base, $hover: darken($base, 10%), $active: darken($base, 20%)) {
+	&,
+	&:visited {
+		color: $base;
+	}
+
+	&:hover {
+		color: $hover;
+	}
+
+	&:active {
+		color: $active;
+	}
+}
