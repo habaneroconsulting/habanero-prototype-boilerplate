@@ -2,6 +2,11 @@
 
 module.exports = {
 	build: {
+		options: {
+			outputStyle: 'expanded',
+			sourceMap: true,
+			sourceMapEmbed: true
+		},
 		files: [
 			{
 				expand: true,

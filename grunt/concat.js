@@ -2,6 +2,7 @@
 
 module.exports = {
 	options: {
-		separator: '\n\n'
+		separator: '\n\n',
+		sourceMap: true
 	}
 };

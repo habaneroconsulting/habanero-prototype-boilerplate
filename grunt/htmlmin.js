@@ -3,7 +3,7 @@
 module.exports = {
 	production: {
 		options: {
-			minifyCSS: true,
+			minifyCSS: false,
 			minifyJS: true,
 			removeComments: true,
 			collapseWhitespace: true

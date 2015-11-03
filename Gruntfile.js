@@ -27,14 +27,13 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', [
 		'clean:build',
 		'sass:build',
-		'autoprefixer:build',
+		'postcss:build',
 		'copy:build',
 		'assemble:build'
 	]);
 
 	grunt.registerTask('useminTasks', [
 		'useminPrepare',
-		'cssmin:generated',
 		'uglify:generated',
 		'concat:generated',
 		'string-replace',
@@ -46,7 +45,7 @@ module.exports = function (grunt) {
 		'clean:production',
 		'assemble:production',
 		'sass:production',
-		'autoprefixer:production',
+		'postcss:production',
 		'copy:production',
 		'useminTasks',
 		'htmlmin'
@@ -58,7 +57,7 @@ module.exports = function (grunt) {
 		'watch'
 	]);
 
-	grunt.registerTask('prodserve', [
+	grunt.registerTask('production-serve', [
 		'production',
 		'connect:production'
 	]);

@@ -1,10 +1,14 @@
 'use strict';
 
 module.exports = {
-	options: {
-		map: true
-	},
 	build: {
+		options: {
+			map: true,
+			processors: [
+				require('pixrem')(),
+				require('autoprefixer')({ browsers: '> 1%' })
+			]
+		},
 		files: [
 			{
 				expand: true,
@@ -19,15 +23,22 @@ module.exports = {
 		]
 	},
 	production: {
+		options: {
+			processors: [
+				require('pixrem')(),
+				require('autoprefixer')({ browsers: '> 1%' }),
+				require('cssnano')()
+			]
+		},
 		files: [
 			{
 				expand: true,
-				cwd: '.tmp/less/styles/',
+				cwd: '.tmp/scss/styles/',
 				src: [
 					'**/*.css',
 					'!vendor/**/*.css'
 				],
-				dest: '.tmp/less/styles/',
+				dest: '.tmp/scss/styles/',
 				ext: '.css'
 			}
 		]

@@ -7,7 +7,7 @@ module.exports = {
 			html: {
 				steps: {
 					js: ['uglifyjs', 'concat'],
-					css: ['cssmin', 'concat']
+					css: ['concat']
 				},
 				post: {}
 			}
