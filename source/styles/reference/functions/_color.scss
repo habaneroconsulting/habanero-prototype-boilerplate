@@ -1,4 +1,4 @@
-/*! reference/functions/_color.scss */
+// reference/functions/_color.scss
 
 // Taken from the following codepen by Brendan Saunders
 // http://codepen.io/bluesaunders/pen/FCLaz
@@ -14,7 +14,7 @@
 	@return $total-brightness / 255 * 100%;
 }
 
-// Compares contrast of a given color to the light/dark arguments and returns whichever provides more constrast
+// Compares contrast of a given color to the light/dark arguments and returns whichever is most 'contrasty'
 @function constrasting-color($color, $dark: #000, $light: #fff) {
 	@if $color == null {
 		@return null;

@@ -1,0 +1,8 @@
+// reference/functions/_unit.scss
+
+@import '../variables/typography';
+
+// Calculate REM based on pixel size
+@function rem-calc($pixel-size) {
+	@return $pixel-size / $font-size-base * 1rem;
+}

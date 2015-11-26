@@ -1,4 +1,4 @@
-/*! refernece/mixins/_helpers.scss */
+// reference/mixins/_helpers.scss
 
 
 //
@@ -15,13 +15,13 @@
 // clear-fix Forces elements to contain float child elements
 //
 @mixin clear-fix {
-	&:before,
-	&:after {
-		content: " ";
+	&::before,
+	&::after {
+		content: ' ';
 		display: table;
 	}
 
-	&:after {
+	&::after {
 		clear: both;
 	}
 
@@ -43,6 +43,7 @@
 // placeholder Changes the placeholder color text
 //
 @mixin placeholder-color ($color) {
+	// scss-lint:disable PseudoElement, VendorPrefix
 	&::-webkit-input-placeholder {
 		color: $color;
 	}
@@ -54,6 +55,7 @@
 	&:-ms-input-placeholder {
 		color: $color;
 	}
+	// scss-lint:enable PseudoElement, VendorPrefix
 }
 
 
@@ -67,6 +69,6 @@
 	margin: -1px;
 	padding: 0;
 	overflow: hidden;
-	clip: rect(0,0,0,0);
+	clip: rect(0, 0, 0, 0);
 	border: 0;
 }

@@ -1,15 +1,15 @@
-/*! components/_block.sass */
+// components/_block.sass
 
-@import "../reference/reference";
+@import '../reference/reference';
 
-$block: "block";
+$block: 'block';
 
 .#{$block} {
 	&__element {
-
+		font-family: $font-family-sansserif;
 	}
 
 	&--modifier {
-
+		font-family: $font-family-serif;
 	}
 }

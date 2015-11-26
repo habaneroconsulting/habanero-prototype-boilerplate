@@ -1,67 +1,23 @@
-/*! refernece/mixins/_images.scss */
+// reference/mixins/_images.scss
+
+@import '../variables/media-queries';
 
 //
-// background-image A background image mixin for high resolution images.
+// background-image A background image mixin that uses SVG with PNG fallback
 //
-// $param {string} $filename The filename of the background-image.
-// $param {string} $extension The extension of the background-image.
-// $param {px} [$width] A pixel width of the original background image.
-// $param {px} [$height] A pixel height of the original background image.
+// $param {string} $filename The filename of the background-image
+// $param {px} $width A pixel width of the original background image.
+// $param {px} $height A pixel height of the original background image.
 // $param {keyword} [$repeat] A repeat keyword.
 // $param {px} [$posx] The background position x in pixels.
 // $param {px} [$posy] The background position y in pixels.
 //
-@mixin background-image($filename, $extension, $width: 0, $height: 0, $repeat: no-repeat, $posx: 0, $posy: 0) {
-	background-image: url("#{$url-project-images}/#{$filename}.#{$extension}");
+@mixin background-image($filename, $width, $height, $repeat: no-repeat, $posx: 0, $posy: 0) {
+	background-image: url('#{$url-images}/#{$filename}.svg');
 	background-repeat: $repeat;
+	background-size: $width $height;
 
 	@if $posx != 0 or $posy != 0 {
 		background-position: $posx $posy;
 	}
-
-	// Need to use all three resolutions since media query bubbling doesn't seem
-	// to work with string interpolation
-	@media (min-resolution: ($screen-resolution-hdpi * 1dppx)) {
-		background-image: url("#{$url-project-images}/#{$filename}@2x.#{$extension}");
-
-		@if ($width != 0) or ($height != 0) {
-			background-size: $width $height;
-		}
-	}
-}
-
-
-//
-// Sprites
-//
-@mixin sprite() {
-	background-image: url($sprite-url);
-	background-repeat: no-repeat;
-
-	// Need to use all three resolutions since media query bubbling doesn't seem
-	// to work with string interpolation
-	@media (min-resolution: ($screen-resolution-hdpi * 1dppx)) {
-		@include retina-sprite;
-	}
-}
-
-@mixin sprite-position($x, $y) {
-	background-position: (-($x - 1)*$sprite-column-width) (-($y - 1)*$sprite-column-width);
-}
-
-@mixin sprite($x, $y) {
-	@include sprite;
-	@include sprite-position($x, $y);
-}
-
-@mixin sprite($x, $y, $width, $height, $url: $sprite-url) {
-	@include sprite($x, $y);
-
-	height: $height;
-	width: $width;
-}
-
-@mixin retina-sprite() {
-	background-image: url($sprite-2x-url);
-	background-size: $sprite-size;
 }

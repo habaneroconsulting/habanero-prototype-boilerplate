@@ -1,33 +1,15 @@
-/*! reference/variables/_media-queries.scss */
+// reference/variables/_media-queries.scss
 
 
 // Media queries breakpoints
-$screen-min-sm:  544px;
-$screen-min-md:  768px;
-$screen-min-lg:  992px;
-$screen-min-xl: 1200px;
-
-// Minimum media queries
-$media-screen-min-sm: "(min-width: #{$screen-min-sm})";
-$media-screen-min-md: "(min-width: #{$screen-min-md})";
-$media-screen-min-lg: "(min-width: #{$screen-min-lg})";
-$media-screen-min-xl: "(min-width: #{$screen-min-xl})";
-
-
-// Media queries breakpoints
-$screen-max-xs: $screen-min-sm - 1;
-$screen-max-sm: $screen-min-md - 1;
-$screen-max-md: $screen-min-lg - 1;
-$screen-max-lg: $screen-min-xl - 1;
-
-// Maximum media queries
-$media-screen-max-xs: "(max-width: #{$screen-max-xs})";
-$media-screen-max-sm: "(max-width: #{$screen-max-sm})";
-$media-screen-max-md: "(max-width: #{$screen-max-md})";
-$media-screen-max-lg: "(max-width: #{$screen-max-lg})";
-
+$breakpoints: (
+	sm: 544px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+);
 
 // Resolution/DPI
 $screen-resolution-hdpi: 1.5;
 
-$media-hdpi: "((min-resolution: ("($screen-resolution-hdpi * 1dppx)"))";
+$media-hdpi: '(-webkit-min-device-pixel-ratio: #{$screen-resolution-hdpi}), (min-resolution: ('($screen-resolution-hdpi * 100dpi)')), (min-resolution: ('($screen-resolution-hdpi * 1dppx)'))';

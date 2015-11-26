@@ -1,4 +1,4 @@
-/*! reference/mixins/_typography.scss */
+// refernece/mixins/_fonts.scss
 
 @mixin font-face($family, $filename, $style, $weight) {
 	@font-face {
@@ -10,10 +10,4 @@
 		font-style: $style;
 		font-weight: $weight;
 	}
-}
-
-
-@mixin font-size($pixels) {
-	font-size: $pixels;
-	font-size: $pixels / $font-size-base * 1rem;
 }

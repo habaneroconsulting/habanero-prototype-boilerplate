@@ -1,4 +1,4 @@
-/*! refernece/mixins/_color-states.scss */
+// reference/mixins/_color-states.scss
 
 
 //
@@ -11,6 +11,7 @@
 @mixin background-color-states($base, $hover: darken($base, 10%), $active: darken($base, 20%)) {
 	background-color: $base;
 
+	&:focus,
 	&:hover {
 		background-color: $hover;
 	}
@@ -35,6 +36,7 @@
 		color: $base;
 	}
 
+	&:focus,
 	&:hover {
 		color: $hover;
 	}
