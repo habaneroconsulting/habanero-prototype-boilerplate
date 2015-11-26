@@ -13,6 +13,10 @@ module.exports = {
 		files: ['<%= config.src %>/pages/**/*.{md,hbs,yml}'],
 		tasks: ['assemble:build']
 	},
+	sass: {
+		files: ['<%= config.src %>/styles/**/*.{css,scss}'],
+		tasks: ['sass:build', 'postcss:build']
+	},
 	less: {
 		files: ['<%= config.src %>/styles/**/*.{css,less}'],
 		tasks: ['less:build', 'autoprefixer:build']
