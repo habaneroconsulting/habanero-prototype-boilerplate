@@ -1,4 +1,8 @@
-// reference/mixins/_helpers.scss
+// reference/mixins/_helpers.scss */
+
+@import '../variables/reference';
+
+@import 'media-queries';
 
 
 //
@@ -15,6 +19,8 @@
 // clear-fix Forces elements to contain float child elements
 //
 @mixin clear-fix {
+	zoom: 1;
+
 	&::before,
 	&::after {
 		content: ' ';
@@ -24,8 +30,6 @@
 	&::after {
 		clear: both;
 	}
-
-	zoom: 1;
 }
 
 
@@ -33,29 +37,10 @@
 // image-replacement
 //
 @mixin image-replacement {
-	text-indent: 100%;
-	white-space: nowrap;
+	display: block;
+	border: 0;
 	overflow: hidden;
-}
-
-
-//
-// placeholder Changes the placeholder color text
-//
-@mixin placeholder-color ($color) {
-	// scss-lint:disable PseudoElement, VendorPrefix
-	&::-webkit-input-placeholder {
-		color: $color;
-	}
-
-	&::-moz-placeholder {
-		color: $color;
-	}
-
-	&:-ms-input-placeholder {
-		color: $color;
-	}
-	// scss-lint:enable PseudoElement, VendorPrefix
+	text-indent: -9999px;
 }
 
 
@@ -63,12 +48,20 @@
 // sr-only Screen-reader only
 //
 @mixin sr-only {
-	position: absolute;
-	width: 1px;
+	border: 0;
+	clip: rect(0, 0, 0, 0);
 	height: 1px;
 	margin: -1px;
-	padding: 0;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+
+//
+// transition A basic transition
+//
+@mixin transition {
+	transition: transition($global-transition);
 }

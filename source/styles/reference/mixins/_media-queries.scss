@@ -12,7 +12,7 @@
 
 @mixin media-max($breakpoint) {
 	@if map-has-key($breakpoints, $breakpoint) {
-		@media (max-width: map-get($breakpoints, $breakpoint) - 1px) {
+		@media (max-width: (map-get($breakpoints, $breakpoint) - 1px)) {
 			@content;
 		}
 	}
@@ -20,6 +20,12 @@
 
 @mixin media-hdpi {
 	@media #{$media-hdpi} {
+		@content;
+	}
+}
+
+@mixin media-hdpi-plus {
+	@media #{$media-hdpi-plus} {
 		@content;
 	}
 }

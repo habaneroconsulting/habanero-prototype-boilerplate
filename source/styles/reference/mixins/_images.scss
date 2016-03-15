@@ -1,11 +1,9 @@
 // reference/mixins/_images.scss
 
-@import '../variables/media-queries';
-
 //
 // background-image A background image mixin that uses SVG with PNG fallback
 //
-// $param {string} $filename The filename of the background-image
+// $param {string} $filename The filename of the background image
 // $param {px} $width A pixel width of the original background image.
 // $param {px} $height A pixel height of the original background image.
 // $param {keyword} [$repeat] A repeat keyword.
@@ -13,11 +11,21 @@
 // $param {px} [$posy] The background position y in pixels.
 //
 @mixin background-image($filename, $width, $height, $repeat: no-repeat, $posx: 0, $posy: 0) {
-	background-image: url('#{$url-images}/#{$filename}.svg');
+	background-image: inline('#{$url-images}/#{$filename}.svg');
 	background-repeat: $repeat;
 	background-size: $width $height;
 
 	@if $posx != 0 or $posy != 0 {
 		background-position: $posx $posy;
 	}
+}
+
+
+//
+// background-image-change Changes the background image URL when using the
+//                         background-image mixin.
+//
+// $param {string} $filename The filename of the background image
+@mixin background-image-change($filename) {
+	background-image: inline('#{$url-images}/#{$filename}.svg');
 }

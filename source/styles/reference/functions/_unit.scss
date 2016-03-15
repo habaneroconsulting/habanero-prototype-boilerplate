@@ -1,8 +1,26 @@
 // reference/functions/_unit.scss
 
+@import '../variables/global';
 @import '../variables/typography';
 
-// Calculate REM based on pixel size
+//
+// rem-calc Calculate REM based on pixel size
+//
+// @param   {px}  $pixel-size The size in pixels
+// @returns {rem}             The resulting size in rem units
+//
 @function rem-calc($pixel-size) {
 	@return $pixel-size / $font-size-base * 1rem;
+}
+
+
+//
+// vertical Help set vertical rhythm by using a global length.
+//
+// @param  {Number} [$multiplier] The multiplier to use, defaults to 1
+// @param  {px}     [$multicand]  The rhythm length to use, defaults to the global length
+// @return {px}                   A multiple of the rhythm length
+//
+@function vertical($multiplier: 1, $multicand: $global-vertical-rhythm-length) {
+	@return $multiplier * $multicand;
 }

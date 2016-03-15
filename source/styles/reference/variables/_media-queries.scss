@@ -1,15 +1,18 @@
 // reference/variables/_media-queries.scss
 
-
 // Media queries breakpoints
 $breakpoints: (
+	xs: 320px,
 	sm: 544px,
 	md: 768px,
 	lg: 992px,
-	xl: 1200px
+	xl: 1200px,
+	xxl: 1440px
 );
 
 // Resolution/DPI
 $screen-resolution-hdpi: 1.5;
+$screen-resolution-hdpi-plus: 3;
 
 $media-hdpi: '(-webkit-min-device-pixel-ratio: #{$screen-resolution-hdpi}), (min-resolution: ('($screen-resolution-hdpi * 100dpi)')), (min-resolution: ('($screen-resolution-hdpi * 1dppx)'))';
+$media-hdpi-plus: '(-webkit-min-device-pixel-ratio: #{$screen-resolution-hdpi-plus}), (min-resolution: ('($screen-resolution-hdpi-plus * 100dpi)')), (min-resolution: ('($screen-resolution-hdpi-plus * 1dppx)'))';

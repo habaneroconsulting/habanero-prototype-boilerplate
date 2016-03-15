@@ -4,27 +4,30 @@
 $white: #fff;
 $black: #000;
 
+$grey:				#455560;
+$grey-light:		#b0b7bc;
+$grey-lighter:		#eff3f5;
+$grey-dark:			#293339;
+$grey-darker:		#131a1e;
 
-// Greys
+$red:				#a71830;
+$red-light:			lighten($red, 12.5%);
+$red-dark:			darken($red, 12.5%);
 
-// Taken from ZURB's Foundation
-// https://github.com/zurb/foundation/blob/master/scss/foundation/components/_global.scss#L288
+$orange:			#f26522;
+$orange-light:   	#ffedcf;
 
-$grey-alfa:     #fafafa;
-$grey-bravo:    #f9f9f9;
-$grey-charlie:  #f6f6f6;
-$grey-delta:    #f5f5f5;
-$grey-epsilon:  #efefef;
-$grey-foxtrot:  #eee;
-$grey-gamma:    #ddd;
-$grey-hotel:    #ced3da;
-$grey-india:    #acb3bd;
-$grey-juliett:  #999;
-$grey-kilo:     #888;
-$grey-lima:     #777;
-$grey-mike:     #666;
-$grey-november: #5d6268;
-$grey-oscar:    #444;
-$grey-papa:     #333;
-$grey-quebec:   #222;
-$grey-sierra:   #000;
+$blue:				#28abe3;
+$blue-light:		#a5e4ff;
+$blue-dark:			#0c445c;
+
+$yellow:			#e8b71a;
+$yellow-dark:		#5c4705;
+
+$green:				#1fda9a;
+$green-light:		#bffae6;
+$green-dark:		#044d34;
+
+$pink:				#e23d96;
+$pink-light:		#ffbfec;
+$pink-dark:			#e328ab;
