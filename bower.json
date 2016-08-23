@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "habanero-style-utilities": "^0.5.0",
-    "jquery": "^1.12.1"
+    "jquery": "^3.1.0"
   },
   "install": {
     "path": {
