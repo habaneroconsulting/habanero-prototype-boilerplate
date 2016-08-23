@@ -9,7 +9,8 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('test', [
 		'jshint',
-		'jscs'
+		'jscs',
+		'sasslint'
 	]);
 
 	grunt.registerTask('test-build', [
@@ -24,6 +25,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [
 		'clean:build',
+		'sasslint',
 		'sass:build',
 		'postcss:build',
 		'copy:build',
@@ -41,6 +43,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('production', [
 		'clean:production',
+		'sasslint',
 		'assemble:production',
 		'sass:production',
 		'postcss:production',

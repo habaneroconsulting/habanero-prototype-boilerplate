@@ -19,7 +19,7 @@
     "build": "grunt build",
     "production": "grunt production",
     "start": "grunt serve",
-    "test": "grunt production"
+    "test": "grunt test-build"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
@@ -44,7 +44,7 @@
     "grunt-open": "~0.2",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^1.1.0",
-    "grunt-scss-lint": "^0.3.8",
+    "grunt-sass-lint": "^0.2.0",
     "grunt-string-replace": "^1.2.0",
     "grunt-usemin": "~3.1",
     "habanero-code-style": "^0.5.0",

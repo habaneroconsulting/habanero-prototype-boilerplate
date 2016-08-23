@@ -2,6 +2,8 @@
 
 module.exports = {
 	options: {
-		preserveComments: 'some'
+		preserveComments: function (node, comment) {
+			return comment.value.charAt(0) === '!';
+		}
 	}
 };

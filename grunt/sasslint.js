@@ -2,8 +2,7 @@
 
 module.exports = {
 	options: {
-		config: './node_modules/habanero-code-style/scss/scsslint.yml',
-		colorizeOutput: true
+		configFile: './node_modules/habanero-code-style/scss/sasslint.yml'
 	},
 	all: {
 		src: [

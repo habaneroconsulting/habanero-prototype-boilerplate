@@ -2,10 +2,9 @@
 
 @mixin font-face($family, $filename, $style: normal, $weight: normal) {
 	@font-face {
-		src: inline('fonts/#{$filename}') format('woff');
-
 		font-family: '#{$family}';
 		font-style: $style;
 		font-weight: $weight;
+		src: inline('fonts/#{$filename}') format('woff');
 	}
 }
