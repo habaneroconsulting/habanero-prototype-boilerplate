@@ -19,10 +19,6 @@ module.exports = function (grunt) {
 		'production'
 	]);
 
-	grunt.registerTask('comb', [
-		'csscomb'
-	]);
-
 	grunt.registerTask('build', [
 		'clean:build',
 		'sasslint',
