@@ -27,6 +27,7 @@
     "cssnano": "^3.3.2",
     "grunt": "^1.0.1",
     "grunt-assemble": "^0.4.0",
+    "grunt-assemble-sitemap": "^0.2.6",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "~1.0",
