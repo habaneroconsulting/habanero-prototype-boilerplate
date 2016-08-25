@@ -11,6 +11,7 @@ module.exports = (src, dest, opts) => {
 	return gulp.src([
 			'**/*.{config,html,ico,png,txt,xml}',
 			'images/**/*',
+			'scripts/**/*',
 			'styles/{fonts,images}/**/*',
 			'!styles/**/*.scss'
 		], opts)
