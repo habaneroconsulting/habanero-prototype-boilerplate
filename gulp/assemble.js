@@ -23,5 +23,6 @@ module.exports = (src, dest, opts) => {
 	return assemble.toStream('pages')
 		.pipe(assemble.renderFile())
 		.pipe(extname())
-		.pipe(assemble.dest(dest));
+		.pipe(assemble.dest(dest))
+		.on('error', console.log);
 };

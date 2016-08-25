@@ -2,10 +2,10 @@
 
 const del = require('del');
 
-module.exports = (pattern, opts) => {
+module.exports = (src, opts) => {
 	opts = Object.assign({}, opts);
 
-	return del(pattern, opts)
+	return del(src, opts)
 		.then(paths => {
 			if (paths.length) {
 				console.log(`Deleted files and folders:\n ${paths.join('\n')}`);

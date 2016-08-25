@@ -1,6 +1,7 @@
 {
 	"files": {
 		"data": "**/*.{json,yml}",
+		"html": "**/*.html",
 		"js": "**/*.js",
 		"scss": "**/*.scss",
 		"scssImports": "**/_*.scss",
