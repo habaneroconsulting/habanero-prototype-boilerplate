@@ -7,10 +7,12 @@ const copy = require('./gulp/copy');
 const gulp = require('gulp');
 const jscs = require('./gulp/jscs');
 const jshint = require('./gulp/jshint');
+const replace = require('./gulp/replace');
+const rev = require('./gulp/rev');
 const sasslint = require('./gulp/sasslint');
 const sequence = require('gulp-sequence');
 const styles = require('./gulp/styles');
-const usemin = require('./gulp/usemin');
+const useref = require('./gulp/useref');
 
 gulp.task('clean:temp', () => clean([config.dirs.temp]));
 gulp.task('clean:build', () => clean([config.dirs.build]));
@@ -56,14 +58,22 @@ gulp.task('styles:production', () =>
 	styles([
 		`${config.dirs.src}/${config.files.scss}`,
 		`!${config.dirs.src}/**/vendor/**/${config.files.scss}`
-	], config.dirs.production)
+	], config.dirs.temp)
 );
 
 gulp.task('copy:build', () => copy(config.dirs.src, config.dirs.build));
 gulp.task('copy:production', () => copy(config.dirs.src, config.dirs.production));
 
-gulp.task('usemin:build', () => usemin(`${config.dirs.build}/${config.files.html}`, config.dirs.build));
-gulp.task('usemin:production', () => usemin(`${config.dirs.production}/${config.files.html}`, config.dirs.production));
+gulp.task('useref:production', () => useref(`${config.dirs.production}/${config.files.html}`, config.dirs.production));
+gulp.task('rev:production', () => rev(`${config.dirs.production}/${config.files.assets}`, config.dirs.production));
+gulp.task('replace:production', () => replace(`${config.dirs.production}/${config.files.assetContainers}`, config.dirs.production));
 
-gulp.task('build', sequence(['test', 'clean:build'], ['assemble:build', 'styles:build', 'copy:build'], 'usemin:build'));
-gulp.task('production', sequence(['test', 'clean:production'], ['assemble:production', 'styles:production', 'copy:production'], 'usemin:production'));
+gulp.task('build', sequence(['test', 'clean:build'], ['assemble:build', 'styles:build', 'copy:build']));
+
+gulp.task('production', sequence(
+	['test', 'clean:production'],
+	['assemble:production', 'styles:production', 'copy:production'],
+	'useref:production',
+	'rev:production',
+	'replace:production'
+));

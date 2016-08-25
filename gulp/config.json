@@ -1,5 +1,7 @@
 {
 	"files": {
+		"assets": "**/*.{gif,jpg,jpeg,json,png,ttf,woff,woff2}",
+		"assetContainers": "**/*.{css,html,js}",
 		"data": "**/*.{json,yml}",
 		"html": "**/*.html",
 		"js": "**/*.js",
@@ -13,7 +15,7 @@
 		"pages": "source/templates/pages",
 		"production": "production",
 		"tasks": "gulp",
-		"temp": "./tmp"
+		"temp": ".tmp"
 	},
 	"repo": "https://github.com/habaneroconsulting/habanero-prototype-boilerplate.git",
 	"url": "https://habaneroconsulting.github.io/habanero-prototype-boilerplate"
