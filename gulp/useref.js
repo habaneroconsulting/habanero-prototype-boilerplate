@@ -3,7 +3,6 @@
 const config = require('./config');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
-const ignore = require('gulp-ignore');
 const lazypipe = require('lazypipe');
 const minifyCss = require('gulp-minify-css');
 const rev = require('gulp-rev');
