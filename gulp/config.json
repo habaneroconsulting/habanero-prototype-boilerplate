@@ -1,8 +1,14 @@
 {
+	"files": {
+		"js": "**/*.js",
+		"scss": "**/*.scss"
+	},
 	"dirs": {
 		"src": "source",
 		"build": "build",
-		"production": "production"
+		"production": "production",
+		"tasks": "gulp",
+		"temp": "./tmp"
 	},
 	"repo": "https://github.com/habaneroconsulting/habanero-prototype-boilerplate.git",
 	"url": "https://habaneroconsulting.github.io/habanero-prototype-boilerplate"
