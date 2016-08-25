@@ -1,0 +1,21 @@
+{
+	"title": "Habanero Prototype Boilerplate",
+	"description": "The Habanero Prototype Boilerplate is a simple template to help you get started.",
+	"keywords": "html, JavaScript, CSS, LESS, boilerplate",
+	"emails": {
+		"support": "support@habaneroconsulting.com"
+	},
+	"twitter": {
+		"card": "product",
+		"site": "@HabaneroConsult"
+	},
+	"opengraph": {
+		"title": "Habanero Prototype Boilerplate",
+		"type": "website",
+		"sitename": "Habanero Prototype Boilerplate",
+		"image": "http://habaneroconsulting.github.io/habanero-prototype-boilerplate/images/opengraph.png",
+		"url": "http://habaneroconsulting.github.io/habanero-prototype-boilerplate",
+		"locale": "en_US"
+	},
+	"gtm": ""
+}

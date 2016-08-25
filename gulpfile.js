@@ -1,43 +1,42 @@
 'use strict';
 
-const gulp = require('gulp');
-const config = require('./gulp/config');
+const assemble = require('./gulp/assemble');
 const clean = require('./gulp/clean');
+const config = require('./gulp/config');
+const gulp = require('gulp');
 const jscs = require('./gulp/jscs');
 const jshint = require('./gulp/jshint');
 const sasslint = require('./gulp/sasslint');
 
-gulp.task('clean:build', () => {
-	return clean([config.dirs.build]);
-});
+gulp.task('clean:temp', () => clean([config.dirs.temp]));
+gulp.task('clean:build', () => clean([config.dirs.build]));
+gulp.task('clean:production', () => clean([config.dirs.production]));
+gulp.task('clean', ['clean:temp', 'clean:build', 'clean:production']);
 
-gulp.task('clean:production', () => {
-	return clean([config.dirs.production]);
-});
+gulp.task('jshint', () =>
+	jshint([
+		`${config.dirs.src}/${config.files.js}`,
+		`!${config.dirs.src}/**/vendor/**/${config.files.js}`
+	])
+);
 
-gulp.task('clean', ['clean:build', 'clean:production']);
-
-gulp.task('jshint', () => {
-	return jshint([
-		config.dirs.src + '/' + config.files.js,
-		'!' + config.dirs.src + '/**/vendor/**/' + config.files.js
-	]);
-});
-
-gulp.task('jscs', () => {
-	return jscs([
+gulp.task('jscs', () =>
+	jscs([
 		'gulpfile.js',
-		config.dirs.tasks + '/' + config.files.js,
-		config.dirs.src + '/' + config.files.js,
-		'!' + config.dirs.src + '/**/vendor/**/' + config.files.js
-	]);
-});
+		`${config.dirs.tasks}/${config.files.js}`,
+		`${config.dirs.src}/${config.files.js}`,
+		`!${config.dirs.src}/**/vendor/**/${config.files.js}`
+	])
+);
 
-gulp.task('sasslint', () => {
-	return sasslint([
-		config.dirs.src + '/' + config.files.scss,
-		'!' + config.dirs.src + '/**/vendor/**/' + config.files.scss
-	]);
-});
+gulp.task('sasslint', () =>
+	sasslint([
+		`${config.dirs.src}/${config.files.scss}`,
+		`!${config.dirs.src}/**/vendor/**/${config.files.scss}`
+	])
+);
 
 gulp.task('test', ['jshint', 'jscs', 'sasslint']);
+
+gulp.task('assemble:build', () => assemble(`${config.dirs.pages}/${config.files.templates}`, config.dirs.build));
+gulp.task('assemble:production', () => assemble(`${config.dirs.pages}/${config.files.templates}`, config.dirs.production));

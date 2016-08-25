@@ -1,11 +1,15 @@
 {
 	"files": {
+		"data": "**/*.{json,yml}",
 		"js": "**/*.js",
-		"scss": "**/*.scss"
+		"scss": "**/*.scss",
+		"scssImports": "**/_*.scss",
+		"templates": "**/*.hbs"
 	},
 	"dirs": {
 		"src": "source",
 		"build": "build",
+		"pages": "source/templates/pages",
 		"production": "production",
 		"tasks": "gulp",
 		"temp": "./tmp"

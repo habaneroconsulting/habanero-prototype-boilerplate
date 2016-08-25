@@ -22,6 +22,7 @@
     "test": "gulp test"
   },
   "devDependencies": {
+    "assemble": "^0.17.1",
     "autoprefixer": "^6.0.3",
     "bower-installer": "^1.2.0",
     "cssnano": "^3.3.2",
@@ -49,10 +50,12 @@
     "grunt-string-replace": "^1.2.0",
     "grunt-usemin": "~3.1",
     "gulp": "^3.9.1",
+    "gulp-extname": "^0.2.2",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.1",
     "gulp-sass-lint": "^1.2.0",
     "habanero-code-style": "^0.5.0",
+    "helper-markdown": "^0.2.1",
     "load-grunt-config": "^0.19.0",
     "load-grunt-tasks": "^3.3.0",
     "pixrem": "^3.0.0"
