@@ -50,6 +50,7 @@
     "grunt-usemin": "~3.1",
     "gulp": "^3.9.1",
     "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.1",
     "gulp-sass-lint": "^1.2.0",
     "habanero-code-style": "^0.5.0",
     "load-grunt-config": "^0.19.0",
