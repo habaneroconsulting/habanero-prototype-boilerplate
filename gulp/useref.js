@@ -1,9 +1,9 @@
 'use strict';
 
+const cleanCss = require('gulp-clean-css');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
 const lazypipe = require('lazypipe');
-const minifyCss = require('gulp-minify-css');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
 const sourcemaps = require('gulp-sourcemaps');
@@ -22,9 +22,9 @@ module.exports = (src, dest, opts) => {
 	};
 
 	return gulp.src(src)
-		.pipe(useref(opts, lazypipe().pipe(sourcemaps.init)))
+		.pipe(useref(opts, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
 		.pipe(gulpif('*.js', uglify(uglifyOpts)))
-		.pipe(gulpif('*.css', minifyCss()))
+		.pipe(gulpif('*.css', cleanCss()))
 		.pipe(gulpif('!**/*.html', rev()))
 		.pipe(revReplace())
 		.pipe(sourcemaps.write('./'))

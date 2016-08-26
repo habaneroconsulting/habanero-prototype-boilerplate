@@ -2,6 +2,7 @@
 
 const autoprefixer = require('autoprefixer');
 const connect = require('gulp-connect');
+const cssnano = require('cssnano');
 const gulp = require('gulp');
 const pixrem = require('pixrem');
 const postcss = require('gulp-postcss');
@@ -13,7 +14,8 @@ module.exports = (src, dest, opts) => {
 
 	const processors = [
 		pixrem(),
-		autoprefixer()
+		autoprefixer({ browsers: ['last 2 versions'] }),
+		cssnano({ safe: true })
 	];
 
 	return gulp.src(src)

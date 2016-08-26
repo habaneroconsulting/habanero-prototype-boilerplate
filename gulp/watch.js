@@ -9,7 +9,6 @@ const jshint = require('./jshint');
 const jscs = require('./jscs');
 const styles = require('./styles');
 const sasslint = require('./sasslint');
-const watch = require('gulp-watch');
 
 function onChange(file) {
 	gutil.log('File', file.path, 'was', file.type, 'running tasks...');
