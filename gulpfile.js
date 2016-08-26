@@ -7,6 +7,7 @@ const connect = require('./gulp/connect');
 const copy = require('./gulp/copy');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const htmlmin = require('./gulp/htmlmin');
 const jscs = require('./gulp/jscs');
 const jshint = require('./gulp/jshint');
 const replace = require('./gulp/replace');
@@ -100,6 +101,7 @@ gulp.task('copy:production', () =>
 gulp.task('useref:production', () => useref(`${config.dirs.production}/${config.files.html}`, config.dirs.production));
 gulp.task('rev:production', () => rev(`${config.dirs.production}/${config.files.versioned}`, config.dirs.production));
 gulp.task('replace:production', () => replace(`${config.dirs.production}/${config.files.versionedContainers}`, config.dirs.production));
+gulp.task('htmlmin:production', () => htmlmin(`${config.dirs.production}/${config.files.html}`, config.dirs.production));
 
 gulp.task('production', sequence(
 	['test', 'clean:production'],
@@ -107,6 +109,7 @@ gulp.task('production', sequence(
 	'useref:production',
 	'rev:production',
 	'replace:production',
+	'htmlmin:production',
 	'clean:temp'
 ));
 
