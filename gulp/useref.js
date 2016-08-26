@@ -6,6 +6,7 @@ const gulp = require('gulp');
 const gulpif = require('gulp-if');
 const header = require('gulp-header');
 const lazypipe = require('lazypipe');
+const lec = require('gulp-line-ending-corrector');
 const pkg = require('../package');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
@@ -40,6 +41,7 @@ module.exports = (src, dest, opts) => {
 	].join('\n');
 
 	return gulp.src(src)
+		.pipe(lec())
 		.pipe(
 			useref(
 				opts,
