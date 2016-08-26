@@ -1,12 +1,10 @@
 'use strict';
 
-const config = require('./config');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
 const lazypipe = require('lazypipe');
 const minifyCss = require('gulp-minify-css');
 const rev = require('gulp-rev');
-const revDelete = require('gulp-rev-delete-original');
 const revReplace = require('gulp-rev-replace');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');

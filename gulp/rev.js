@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('./config');
 const gulp = require('gulp');
 const rev = require('gulp-rev');
 const revDelete = require('gulp-rev-delete-original');

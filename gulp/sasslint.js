@@ -11,6 +11,5 @@ module.exports = (src, opts) => {
 	return gulp.src(src)
 		.pipe(sasslint(opts))
 		.pipe(sasslint.format())
-		.pipe(sasslint.failOnError())
-		.on('error', console.log);
+		.pipe(sasslint.failOnError());
 };

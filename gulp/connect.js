@@ -11,5 +11,5 @@ module.exports = (src, opts) => {
 	}, opts);
 
 	connect.server(opts);
-	open(`http${opts.https ? 's' : ''}://localhost:${opts.port}`);
+	open(`http://localhost:${opts.port}`);
 };

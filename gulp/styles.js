@@ -1,6 +1,7 @@
 'use strict';
 
 const autoprefixer = require('autoprefixer');
+const connect = require('gulp-connect');
 const gulp = require('gulp');
 const pixrem = require('pixrem');
 const postcss = require('gulp-postcss');
@@ -21,5 +22,5 @@ module.exports = (src, dest, opts) => {
 		.pipe(postcss(processors))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(dest))
-		.on('error', console.log);
+		.pipe(connect.reload());
 };

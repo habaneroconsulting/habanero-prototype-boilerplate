@@ -2,6 +2,7 @@
 
 const assemble = require('assemble')();
 const config = require('./config');
+const connect = require('gulp-connect');
 const extname = require('gulp-extname');
 const markdown = require('helper-markdown');
 
@@ -24,5 +25,5 @@ module.exports = (src, dest, opts) => {
 		.pipe(assemble.renderFile())
 		.pipe(extname())
 		.pipe(assemble.dest(dest))
-		.on('error', console.log);
+		.pipe(connect.reload());
 };
