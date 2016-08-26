@@ -1,0 +1,37 @@
+{
+	"files": {
+		"assets": "**/*.{config,gif,html,jpg,jpeg,ico,json,png,svg,ttf,txt,woff,woff2,xml}",
+		"data": "**/*.{json,yml}",
+		"html": "**/*.html",
+		"js": "**/*.js",
+		"versioned": "**/*.{gif,jpg,jpeg,json,png,svg,ttf,woff,woff2}",
+		"versionedContainers": "**/*.{css,html,js}",
+		"scss": "**/*.scss",
+		"scssImports": "**/_*.scss",
+		"templates": "**/*.{hbs,md}"
+	},
+	"dirs": {
+		"src": "source",
+		"build": "build",
+		"pages": "source/templates/pages",
+		"production": "production",
+		"tasks": "gulp",
+		"temp": ".tmp"
+	},
+	"copy": {
+		"build": [
+			"**/*.{config,html,ico,png,txt,xml}",
+			"images/**/*",
+			"scripts/**/*",
+			"styles/{fonts,images}/**/*"
+		],
+		"production": [
+			"**/CNAME",
+			"**/*.{config,html,ico,png,txt,xml}",
+			"images/**/*",
+			"styles/{fonts,images}/**/*"
+		]
+	},
+	"repo": "https://github.com/habaneroconsulting/habanero-prototype-boilerplate.git",
+	"url": "https://habaneroconsulting.github.io/habanero-prototype-boilerplate"
+}
