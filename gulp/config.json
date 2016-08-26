@@ -26,6 +26,7 @@
 			"styles/{fonts,images}/**/*"
 		],
 		"production": [
+			"**/CNAME",
 			"**/*.{config,html,ico,png,txt,xml}",
 			"images/**/*",
 			"styles/{fonts,images}/**/*"

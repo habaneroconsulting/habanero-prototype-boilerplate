@@ -1,5 +1,6 @@
 'use strict';
 
+const assets = require('postcss-assets');
 const autoprefixer = require('autoprefixer');
 const connect = require('gulp-connect');
 const cssnano = require('cssnano');
@@ -15,6 +16,7 @@ module.exports = (src, dest, opts) => {
 	const processors = [
 		pixrem(),
 		autoprefixer({ browsers: ['last 2 versions'] }),
+		assets({ loadPaths: ['source/styles'] }),
 		cssnano({ safe: true })
 	];
 

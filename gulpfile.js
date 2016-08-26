@@ -9,6 +9,7 @@ const ghpages = require('./gulp/gh-pages');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const htmlmin = require('./gulp/htmlmin');
+const inline = require('./gulp/inline');
 const jscs = require('./gulp/jscs');
 const jshint = require('./gulp/jshint');
 const replace = require('./gulp/replace');
@@ -27,10 +28,11 @@ const watch = require('./gulp/watch');
 gulp.task('clean:temp', () => clean([config.dirs.temp]));
 gulp.task('clean:build', () => clean([config.dirs.build]));
 gulp.task('clean:production', () => clean([config.dirs.production]));
+gulp.task('clean', ['clean:temp', 'clean:build', 'clean:production']);
 
 
 /**
- * Testing and linting.
+ * Linting.
  */
 
 gulp.task('jshint', () =>
@@ -56,7 +58,7 @@ gulp.task('sasslint', () =>
 	])
 );
 
-gulp.task('test', ['jshint', 'jscs', 'sasslint']);
+gulp.task('lint', ['jshint', 'jscs', 'sasslint']);
 
 
 /**
@@ -77,7 +79,7 @@ gulp.task('copy:build', () =>
 );
 
 gulp.task('build', sequence(
-	['test', 'clean:build'],
+	['lint', 'clean:build'],
 	['assemble:build', 'styles:build', 'copy:build']
 ));
 
@@ -99,14 +101,16 @@ gulp.task('copy:production', () =>
 	copy(config.copy.production, config.dirs.production, { base: config.dirs.src, cwd: config.dirs.src })
 );
 
+gulp.task('inline:production', () => inline(`${config.dirs.production}/${config.files.html}`, config.dirs.production));
 gulp.task('useref:production', () => useref(`${config.dirs.production}/${config.files.html}`, config.dirs.production));
 gulp.task('rev:production', () => rev(`${config.dirs.production}/${config.files.versioned}`, config.dirs.production));
 gulp.task('replace:production', () => replace(`${config.dirs.production}/${config.files.versionedContainers}`, config.dirs.production));
 gulp.task('htmlmin:production', () => htmlmin(`${config.dirs.production}/${config.files.html}`, config.dirs.production));
 
 gulp.task('production', sequence(
-	['test', 'clean:production'],
+	['lint', 'clean:production'],
 	['assemble:production', 'styles:production', 'copy:production'],
+	'inline:production',
 	'useref:production',
 	'rev:production',
 	'replace:production',
@@ -135,3 +139,10 @@ gulp.task('serve', ['connect:build'], watch);
  */
 
 gulp.task('deploy', ['production'], () => ghpages(`${config.dirs.production}/**/*`));
+
+
+/**
+ * Testing.
+ */
+
+gulp.task('test', sequence('lint', 'build', 'production', 'clean'));
