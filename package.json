@@ -55,6 +55,7 @@
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-extname": "^0.2.2",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-htmlmin": "^2.0.0",
     "gulp-if": "^2.0.1",
     "gulp-jscs": "^4.0.0",

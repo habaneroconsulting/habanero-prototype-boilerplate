@@ -8,6 +8,7 @@ node_modules
 build
 production
 .tmp
+.publish
 .DS_Store
 
 # Sublime Project files

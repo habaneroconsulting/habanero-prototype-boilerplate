@@ -5,6 +5,7 @@ const clean = require('./gulp/clean');
 const config = require('./gulp/config');
 const connect = require('./gulp/connect');
 const copy = require('./gulp/copy');
+const ghpages = require('./gulp/gh-pages');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const htmlmin = require('./gulp/htmlmin');
@@ -127,3 +128,10 @@ gulp.task('connect:production', ['production'], () => connect(config.dirs.produc
  */
 
 gulp.task('serve', ['connect:build'], watch);
+
+
+/**
+ * Deploy
+ */
+
+gulp.task('deploy', ['production'], () => ghpages(`${config.dirs.production}/**/*`));
