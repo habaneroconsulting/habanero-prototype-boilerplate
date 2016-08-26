@@ -16,9 +16,10 @@
   },
   "scripts": {
     "bower": "bower-installer",
-    "build": "grunt build",
-    "production": "grunt production",
-    "start": "grunt serve",
+    "build": "gulp build",
+    "install": "bower-installer",
+    "production": "gulp production",
+    "start": "gulp serve",
     "test": "gulp test"
   },
   "pre-commit": [
