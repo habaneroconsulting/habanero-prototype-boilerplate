@@ -2,13 +2,14 @@
 
 const assemble = require('./assemble');
 const config = require('./config');
+const connect = require('gulp-connect');
 const copy = require('./copy');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const jshint = require('./jshint');
 const jscs = require('./jscs');
-const styles = require('./styles');
+const jshint = require('./jshint');
 const sasslint = require('./sasslint');
+const styles = require('./styles');
 
 function onChange(file) {
 	gutil.log('File', file.path, 'was', file.type, 'running tasks...');
@@ -20,7 +21,10 @@ function log(verb, taskName) {
 
 function task(event, taskName, callback) {
 	log('Started', taskName);
-	callback();
+
+	callback()
+		.pipe(connect.reload());
+
 	log('Finished', taskName);
 }
 
