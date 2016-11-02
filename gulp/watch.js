@@ -64,7 +64,7 @@ module.exports = () => {
 		.on('change', (file) => {
 			onChange(file);
 
-			task(file, 'sasslint:build', () => sasslint(file.path));
+			task(file, 'sasslint:build', () => sasslint(file.path, {}, false));
 
 			task(file, 'styles:build', () =>
 				styles([
