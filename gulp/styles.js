@@ -25,6 +25,5 @@ module.exports = (src, dest, opts) => {
 		.pipe(sass(opts))
 		.pipe(postcss(processors))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(dest))
-		.pipe(connect.reload());
+		.pipe(gulp.dest(dest));
 };

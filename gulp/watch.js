@@ -23,9 +23,10 @@ function task(event, taskName, callback) {
 	log('Started', taskName);
 
 	callback()
-		.pipe(connect.reload());
-
-	log('Finished', taskName);
+		.pipe(connect.reload())
+		.on('end', () => {
+			log('Finished', taskName);
+		});
 }
 
 function copyTask(file) {

@@ -1,7 +1,7 @@
 {
   "name": "habanero-prototype-boilerplate",
   "description": "A quick start to HTML prototyping.",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "author": "Habanero Consulting Group",
   "contributors": [
     {
@@ -64,7 +64,7 @@
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "lazypipe": "^1.0.1",
-    "node-sass": "^3.10.1",
+    "node-sass": "^3.11.1",
     "open": "0.0.5",
     "pixrem": "^3.0.2",
     "postcss-assets": "^4.1.0",
