@@ -2252,6 +2252,15 @@ duplexify@^3.2.0, duplexify@^3.4.2:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+duplexify@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.5.0.tgz#1aa773002e1578457e9d9d4a50b0ccaaebcbd604"
+  dependencies:
+    end-of-stream "1.0.0"
+    inherits "^2.0.1"
+    readable-stream "^2.0.0"
+    stream-shift "^1.0.0"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -3360,7 +3369,15 @@ gulp-htmlmin@3.0.0:
     readable-stream "^2.0.2"
     tryit "^1.0.1"
 
-gulp-if@^2.0.0, gulp-if@^2.0.1:
+gulp-if:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/gulp-if/-/gulp-if-2.0.2.tgz#a497b7e7573005041caa2bc8b7dda3c80444d629"
+  dependencies:
+    gulp-match "^1.0.3"
+    ternary-stream "^2.0.1"
+    through2 "^2.0.1"
+
+gulp-if@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/gulp-if/-/gulp-if-2.0.1.tgz#55f3edf82cecdfcf6035aa5d0686979aab0dac28"
   dependencies:
@@ -3409,6 +3426,12 @@ gulp-match@^1.0.2:
   resolved "https://registry.yarnpkg.com/gulp-match/-/gulp-match-1.0.2.tgz#f94c88e946f9faf8a50cb5a6e1b95cb5eeb33632"
   dependencies:
     minimatch "^3.0.0"
+
+gulp-match@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/gulp-match/-/gulp-match-1.0.3.tgz#91c7c0d7f29becd6606d57d80a7f8776a87aba8e"
+  dependencies:
+    minimatch "^3.0.3"
 
 gulp-minify-html@^1.0.6:
   version "1.0.6"
@@ -5427,7 +5450,7 @@ node-gyp@^3.3.1:
     tar "^2.0.0"
     which "1"
 
-node-sass, node-sass@^3.4.2:
+node-sass@^3.4.2:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-3.10.1.tgz#c535b2e1a5439240591e06d7308cb663820d616c"
   dependencies:
@@ -7471,6 +7494,15 @@ ternary-stream@^2.0.0:
     fork-stream "^0.0.4"
     merge-stream "^1.0.0"
     through2 "^2.0.0"
+
+ternary-stream@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ternary-stream/-/ternary-stream-2.0.1.tgz#064e489b4b5bf60ba6a6b7bc7f2f5c274ecf8269"
+  dependencies:
+    duplexify "^3.5.0"
+    fork-stream "^0.0.4"
+    merge-stream "^1.0.0"
+    through2 "^2.0.1"
 
 text-hex@0.0.x:
   version "0.0.0"
