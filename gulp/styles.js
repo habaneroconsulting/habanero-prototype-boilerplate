@@ -1,14 +1,12 @@
-'use strict';
-
-const assets = require('postcss-assets');
-const autoprefixer = require('autoprefixer');
-const connect = require('gulp-connect');
-const cssnano = require('cssnano');
-const gulp = require('gulp');
-const pixrem = require('pixrem');
-const postcss = require('gulp-postcss');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
+import assets from 'postcss-assets';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+import gulp from 'gulp';
+import pixrem from 'pixrem';
+import plumber from 'gulp-plumber';
+import postcss from 'gulp-postcss';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 
 module.exports = (src, dest, opts) => {
 	opts = Object.assign({}, opts);
@@ -21,6 +19,7 @@ module.exports = (src, dest, opts) => {
 	];
 
 	return gulp.src(src)
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(sass(opts))
 		.pipe(postcss(processors))

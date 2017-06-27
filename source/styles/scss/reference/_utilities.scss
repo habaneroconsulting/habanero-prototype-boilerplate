@@ -1,0 +1,31 @@
+﻿/// A method of forcing elements to contain any floating child element.
+@mixin clear-fix {
+	&::after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
+
+/// Force an element to be hidden from view, but still accessible with a screen reader.
+@mixin hidden {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	visibility: visible;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/// Make an element's text nodes be invisible.
+@mixin image-replacement {
+	background-color: transparent;
+	border: 0;
+	color: transparent;
+	font: #{0/0} a;
+	text-shadow: none;
+}

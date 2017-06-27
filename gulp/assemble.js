@@ -1,29 +1,56 @@
-'use strict';
+import assemble from 'assemble';
+import config from './config';
+import connect from 'gulp-connect';
+import extname from 'gulp-extname';
+import markdown from 'helper-markdown';
+import plumber from 'gulp-plumber';
 
-const assemble = require('assemble')();
-const config = require('./config');
-const connect = require('gulp-connect');
-const extname = require('gulp-extname');
-const markdown = require('helper-markdown');
-
-module.exports = (src, dest, opts) => {
-	opts = Object.assign({
+module.exports = (src, dest, srcOpts = {}, assembleOpts = {}) => {
+	assembleOpts = Object.assign({
 		data: `${config.dirs.src}/data/${config.files.data}`,
 		layouts: `${config.dirs.src}/templates/layouts/${config.files.templates}`,
 		partials: `${config.dirs.src}/templates/partials/${config.files.templates}`
-	}, opts);
+	}, assembleOpts);
 
-	assemble.create('pages');
+	const app = assemble();
 
-	assemble.data(opts.data);
-	assemble.helper('markdown', markdown);
-	assemble.layouts(opts.layouts);
-	assemble.pages(src);
-	assemble.partials(opts.partials);
+	// Pages
+	const collection = 'pages';
+	app.create(collection);
+	app.pages(src, srcOpts);
 
-	return assemble.toStream('pages')
-		.pipe(assemble.renderFile())
+	// Data
+	app.data(assembleOpts.data);
+
+	// Handlebars helpers
+	app.helper('is', (a, b, options) => (a === b) ? options.fn(this) : options.inverse(this));
+	app.helper('link-to', (a, b, c) => {
+		let path = b.replace(a, '');
+
+		if (!c) {
+			c = '../';
+		}
+
+		path = `${c}${path}`;
+		path = path.replace('.md', '.html');
+		path = path.replace('.hbs', '.html');
+		path = path.replace(/\/+/, '/');
+
+		return path;
+	});
+	app.helper('markdown', markdown);
+	app.helper('stringify', (a, options) => JSON.stringify(a));
+
+	// Layouts
+	app.layouts(assembleOpts.layouts);
+	app.option({ layout: 'default' });
+
+	// Partials
+	app.partials(assembleOpts.partials);
+
+	return app.toStream(collection)
+		.pipe(plumber())
+		.pipe(app.renderFile())
 		.pipe(extname())
-		.pipe(assemble.dest(dest))
-		.pipe(connect.reload());
+		.pipe(app.dest(dest));
 };

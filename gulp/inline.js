@@ -1,15 +1,18 @@
-'use strict';
-
-const config = require('./config');
-const gulp = require('gulp');
-const inlinesource = require('gulp-inline-source');
+import del from 'del';
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import revReplace from 'gulp-rev-replace';
 
 module.exports = (src, dest, opts) => {
+	const filepath = `${dest}/rev-manifest.json`;
+	const manifest = gulp.src(`${dest}/rev-manifest.json`);
+
 	opts = Object.assign({
-		rootpath: config.dirs.src
+		manifest: manifest
 	}, opts);
 
 	return gulp.src(src)
-		.pipe(inlinesource(opts))
+		.pipe(plumber())
+		.pipe(revReplace(opts))
 		.pipe(gulp.dest(dest));
 };

@@ -1,8 +1,7 @@
-'use strict';
-
-const del = require('del');
-const gulp = require('gulp');
-const revReplace = require('gulp-rev-replace');
+import del from 'del';
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import revReplace from 'gulp-rev-replace';
 
 module.exports = (src, dest, opts) => {
 	const filepath = `${dest}/rev-manifest.json`;
@@ -13,6 +12,7 @@ module.exports = (src, dest, opts) => {
 	}, opts);
 
 	return gulp.src(src)
+		.pipe(plumber())
 		.pipe(revReplace(opts))
 		.pipe(gulp.dest(dest));
 };

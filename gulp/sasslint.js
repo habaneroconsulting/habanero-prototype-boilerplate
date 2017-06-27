@@ -1,20 +1,15 @@
-'use strict';
-
-const gulp = require('gulp');
-const sasslint = require('gulp-sass-lint');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import sasslint from 'gulp-sass-lint';
 
 module.exports = (src, opts = {}, failOnError = true) => {
 	opts = Object.assign({
-		configFile: './node_modules/habanero-code-style/scss/sasslint.yml'
+		configFile: 'sasslint.yml'
 	}, opts);
 
-	const task = gulp.src(src)
+	return gulp.src(src)
+		.pipe(plumber())
 		.pipe(sasslint(opts))
-		.pipe(sasslint.format());
-
-	if (failOnError) {
-		task.pipe(sasslint.failOnError());
-	}
-
-	return task;
+		.pipe(sasslint.format())
+		.pipe(sasslint.failOnError());
 };

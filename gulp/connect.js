@@ -1,7 +1,5 @@
-'use strict';
-
-const connect = require('gulp-connect');
-const open = require('open');
+import connect from 'gulp-connect';
+import open from 'open';
 
 module.exports = (src, opts) => {
 	opts = Object.assign({

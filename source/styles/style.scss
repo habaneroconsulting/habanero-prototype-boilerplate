@@ -3,11 +3,4 @@
 //  Author: Habanero Consulting Group
 //
 
-@import 'vendor/normalize.css/normalize';
-
-@import 'vendor/grid/bootstrap-grid';
-
-@import 'main';
-
-// Components
-@import 'components/block';
+@import 'scss/atoms/index';

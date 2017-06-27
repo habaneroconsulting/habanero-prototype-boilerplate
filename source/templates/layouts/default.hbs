@@ -19,17 +19,17 @@
 
 		{{> body-header }}
 
-		{% body %}
+		{{#markdown}}{% body %}{{/markdown}}
 
 		{{> body-footer }}
 
 	</div>
 
-	<!-- build:js(./source) scripts/vendor/jquery.min.js -->
+	<!-- build:js(./.tmp) scripts/vendor/jquery.min.js -->
 	<script src="scripts/vendor/jquery/jquery.js"></script>
 	<!-- endbuild -->
 
-	<!-- build:js(./source) scripts/main.min.js -->
+	<!-- build:js(./.tmp) scripts/main.min.js -->
 	<script src="scripts/main.js"></script>
 	<!-- endbuild -->
 </body>

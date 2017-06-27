@@ -1,7 +1,6 @@
-'use strict';
-
-const gulp = require('gulp');
-const ghpages = require('gulp-gh-pages');
+import gulp from 'gulp';
+import ghpages from 'gulp-gh-pages';
+import plumber from 'gulp-plumber';
 
 module.exports = (src, opts) => {
 	opts = Object.assign({
@@ -9,5 +8,6 @@ module.exports = (src, opts) => {
 	}, opts);
 
 	return gulp.src(src)
+		.pipe(plumber())
 		.pipe(ghpages(opts));
 };

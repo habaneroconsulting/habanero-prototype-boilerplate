@@ -1,0 +1,13 @@
+@import '../reference/index';
+
+$block: 'block';
+
+.#{$block} {
+	&--modifier {
+		display: none;
+	}
+
+	&__element {
+		display: none;
+	}
+}

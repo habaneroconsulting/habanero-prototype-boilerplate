@@ -1,7 +1,5 @@
-'use strict';
-
-const del = require('del');
-const gutil = require('gulp-util');
+import del from 'del';
+import gutil from 'gulp-util';
 
 module.exports = (src, opts) => {
 	opts = Object.assign({}, opts);

@@ -1,32 +1,34 @@
-'use strict';
-
-const argv = require('yargs').argv;
-const cleanCss = require('gulp-clean-css');
-const gulp = require('gulp');
-const gulpif = require('gulp-if');
-const header = require('gulp-header');
-const lazypipe = require('lazypipe');
-const lec = require('gulp-line-ending-corrector');
-const pkg = require('../package');
-const rev = require('gulp-rev');
-const revReplace = require('gulp-rev-replace');
-const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
-const useref = require('gulp-useref');
+import yargs from 'yargs';
+import * as config from './config';
+import cleanCss from 'gulp-clean-css';
+import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import header from 'gulp-header';
+import lazypipe from 'lazypipe';
+import lec from 'gulp-line-ending-corrector';
+import pkg from '../package';
+import plumber from 'gulp-plumber';
+import rev from 'gulp-rev';
+import revReplace from 'gulp-rev-replace';
+import sourcemaps from 'gulp-sourcemaps';
+import uglify from 'gulp-uglify';
+import useref from 'gulp-useref';
 
 module.exports = (src, dest, opts) => {
 	opts = Object.assign({
-		newLine: '\n\n'
+		base: config.dirs.production,
+		newLine: '\n\n',
+		transformPath: (filePath) => filePath.replace(/\.\.\//g, '')
 	}, opts);
 
 	const uglifyOpts = {
-		preserveComments: function (node, comment) {
-			return comment.value.charAt(0) === '!';
+		output: {
+			comments: /@license|@preserve|^!/
 		}
 	};
 
-	if (argv.buildnumber) {
-		pkg.version = `v${argv.buildnumber}`;
+	if (yargs.argv.buildnumber) {
+		pkg.version = `v${yargs.argv.buildnumber}`;
 	}
 
 	const banner = [
@@ -41,18 +43,26 @@ module.exports = (src, dest, opts) => {
 	].join('\n');
 
 	return gulp.src(src)
+		.pipe(plumber())
 		.pipe(lec())
 		.pipe(
 			useref(
 				opts,
-				lazypipe().pipe(sourcemaps.init, { loadMaps: true }),
-				lazypipe().pipe(() => gulpif('*.js', uglify(uglifyOpts)))
+				// TODO: Temporarily removed sourcempaping due to libsass issue
+				// lazypipe().pipe(sourcemaps.init, { loadMaps: true })
 			)
 		)
+		.pipe(gulpif('*.js', uglify(uglifyOpts)))
 		.pipe(gulpif('*.js', header(banner, { pkg: pkg })))
 		.pipe(gulpif('*.css', cleanCss()))
 		.pipe(gulpif('!**/*.html', rev()))
 		.pipe(revReplace())
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(dest));
+		// TODO: Temporarily removed sourcempaping due to libsass issue
+		// .pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest((file) => {
+			const dirs = file.relative.match(/\.\.\//g) || [];
+			const path = dirs.reduce((str) => str + '/fakepath', '');
+
+			return config.dirs.production + path;
+		}));
 };

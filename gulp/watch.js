@@ -1,15 +1,14 @@
-'use strict';
-
-const assemble = require('./assemble');
-const config = require('./config');
-const connect = require('gulp-connect');
-const copy = require('./copy');
-const gulp = require('gulp');
-const gutil = require('gulp-util');
-const jscs = require('./jscs');
-const jshint = require('./jshint');
-const sasslint = require('./sasslint');
-const styles = require('./styles');
+import assemble from './assemble';
+import * as config from './config';
+import connect from 'gulp-connect';
+import copy from './copy';
+import gulp from 'gulp';
+import gutil from 'gulp-util';
+import plumber from 'gulp-plumber';
+import sasslint from './sasslint';
+import styles from './styles';
+import tslint from './tslint';
+import typescript from './typescript';
 
 function onChange(file) {
 	gutil.log('File', file.path, 'was', file.type, 'running tasks...');
@@ -23,6 +22,7 @@ function task(event, taskName, callback) {
 	log('Started', taskName);
 
 	callback()
+		.pipe(plumber())
 		.pipe(connect.reload())
 		.on('end', () => {
 			log('Finished', taskName);
@@ -37,31 +37,37 @@ function copyTask(file) {
 }
 
 module.exports = () => {
-	// Assemble assets like templates, pages and data
-	gulp.watch([
-			`${config.dirs.src}/${config.files.templates}`,
-			`${config.dirs.src}/data/${config.files.data}`
-		])
+	// Assemble pages
+	gulp.watch([ `${config.dirs.pages}/${config.files.templates}` ], { cwd: config.dirs.src })
 		.on('change', (file) => {
 			onChange(file);
 
-			task(file, 'assemble:build', () =>
-				assemble(`${config.dirs.pages}/${config.files.templates}`, config.dirs.build)
+			task(file, 'assemble-page:build', () =>
+				assemble(file.path, config.dirs.build, { base: `${config.dirs.src}/${config.dirs.pages}`, cwd: `${config.dirs.src}/${config.dirs.pages}` })
 			);
 		});
 
-	// JavaScript files
-	gulp.watch(`${config.dirs.src}/${config.files.js}`)
+	// Assemble all
+	gulp.watch([ config.files.templates, `data/${config.files.data}`, `!templates/pages/${config.files.templates}` ], { cwd: config.dirs.src })
 		.on('change', (file) => {
 			onChange(file);
 
-			task(file, 'jshint:build', () => jshint(file.path, { watch: true }));
-			task(file, 'jscs:build', () => jscs(file.path, { watch: true }));
-			copyTask(file);
+			task(file, 'assemble-all:build', () =>
+				assemble(`${config.dirs.src}/${config.dirs.pages}/${config.files.templates}`, config.dirs.build)
+			);
+		});
+
+	// TypeScript files
+	gulp.watch(config.files.ts, { cwd: config.dirs.src })
+		.on('change', (file) => {
+			onChange(file);
+
+			task(file, 'tslint', () => tslint(file.path, {}, false));
+			task(file, 'typescript', () => typescript(file.path, config.dirs.build, { base: config.dirs.src }));
 		});
 
 	// SCSS files
-	gulp.watch(`${config.dirs.src}/${config.files.scss}`)
+	gulp.watch(config.files.scss, { cwd: config.dirs.src })
 		.on('change', (file) => {
 			onChange(file);
 
@@ -73,10 +79,11 @@ module.exports = () => {
 					`!${config.dirs.src}/**/vendor/**/${config.files.scss}`
 				], config.dirs.build)
 			);
-		});
+		})
+		.on('error', console.log);
 
 	// Any other asset that needs to be directly copied
-	gulp.watch(`${config.dirs.src}/${config.files.assets}`)
+	gulp.watch(config.files.assets, { cwd: config.dirs.src })
 		.on('change', (file) => {
 			onChange(file);
 
