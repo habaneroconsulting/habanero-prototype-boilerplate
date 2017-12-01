@@ -1,13 +1,18 @@
 {
   "name": "habanero-prototype-boilerplate",
   "description": "A quick start to HTML prototyping.",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "author": "Habanero Consulting Group",
   "contributors": [
     {
       "name": "Christopher Parsons",
       "email": "cparsons@habaneroconsulting.com",
-      "url": "http://habaneroconsulting.com"
+      "url": "https://www.habaneroconsulting.com"
+    },
+    {
+      "name": "Mark Jimenez",
+      "email": "mjimenez@habaneroconsulting.com",
+      "url": "https://www.habaneroconsulting.com"
     }
   ],
   "license": "MIT",
@@ -58,7 +63,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.1.2",
     "gulp-util": "^3.0.8",
-    "handlebars-helpers": "^0.9.8",
+    "handlebars-helpers": "^0.10.0",
     "helper-markdown": "^1.0.0",
     "lazypipe": "^1.0.1",
     "open": "0.0.5",
