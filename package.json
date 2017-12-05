@@ -66,6 +66,7 @@
     "handlebars-helpers": "^0.10.0",
     "helper-markdown": "^1.0.0",
     "lazypipe": "^1.0.1",
+    "node-sass": "^4.7.2",
     "open": "0.0.5",
     "pixrem": "^4.0.1",
     "postcss-assets": "^5.0.0",
