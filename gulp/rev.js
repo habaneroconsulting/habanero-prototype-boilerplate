@@ -3,7 +3,7 @@ import plumber from 'gulp-plumber';
 import rev from 'gulp-rev';
 import revDelete from 'gulp-rev-delete-original';
 
-module.exports = (src, dest, opts) =>
+export default (src, dest) =>
 	gulp.src(src)
 		.pipe(plumber())
 		.pipe(rev())

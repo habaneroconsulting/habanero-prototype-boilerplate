@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import sasslint from 'gulp-sass-lint';
 
-module.exports = (src, opts = {}, failOnError = true) => {
+export default (src, opts = {}) => {
 	opts = Object.assign({
 		configFile: 'sasslint.yml'
 	}, opts);
@@ -12,4 +12,4 @@ module.exports = (src, opts = {}, failOnError = true) => {
 		.pipe(sasslint(opts))
 		.pipe(sasslint.format())
 		.pipe(sasslint.failOnError());
-};
+}

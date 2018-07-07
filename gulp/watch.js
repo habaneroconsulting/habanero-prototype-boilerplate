@@ -1,5 +1,5 @@
-import assemble from './assemble';
 import * as config from './config';
+import assemble from './assemble';
 import connect from 'gulp-connect';
 import copy from './copy';
 import gulp from 'gulp';
@@ -8,7 +8,7 @@ import plumber from 'gulp-plumber';
 import sasslint from './sasslint';
 import styles from './styles';
 import tslint from './tslint';
-import typescript from './typescript';
+import webpack from './webpack';
 
 function onChange(file) {
 	gutil.log('File', file.path, 'was', file.type, 'running tasks...');
@@ -36,7 +36,7 @@ function copyTask(file) {
 	}));
 }
 
-module.exports = () => {
+export default () => {
 	// Assemble pages
 	gulp.watch([ `${config.dirs.pages}/${config.files.templates}` ], { cwd: config.dirs.src })
 		.on('change', (file) => {
@@ -63,8 +63,9 @@ module.exports = () => {
 			onChange(file);
 
 			task(file, 'tslint', () => tslint(file.path, {}, false));
-			task(file, 'typescript', () => typescript(file.path, config.dirs.build, { base: config.dirs.src }));
 		});
+
+	webpack(`${config.files.webpack}`, `${config.dirs.build}/scripts`, { watch: true });
 
 	// SCSS files
 	gulp.watch(config.files.scss, { cwd: config.dirs.src })
@@ -89,4 +90,4 @@ module.exports = () => {
 
 			copyTask(file);
 		});
-};
+}

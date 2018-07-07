@@ -4,7 +4,7 @@ layout: default
 ---
 # Habanero Prototype Boilerplate [![devDependency Status](https://david-dm.org/habaneroconsulting/habanero-prototype-boilerplate/dev-status.svg)](https://david-dm.org/habaneroconsulting/habanero-prototype-boilerplate#info=devDependencies)
 
-A simple boilerplate to start off prototyping. Built with HTML5 Boilerplate, Normalize, Twitter Bootstrap, Assemble, and Grunt.
+A simple boilerplate to start off prototyping.
 
 ## Build Instructions
 

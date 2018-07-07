@@ -1,4 +1,3 @@
-import yargs from 'yargs';
 import * as config from './config';
 import cleanCss from 'gulp-clean-css';
 import gulp from 'gulp';
@@ -13,8 +12,9 @@ import revReplace from 'gulp-rev-replace';
 import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 import useref from 'gulp-useref';
+import yargs from 'yargs';
 
-module.exports = (src, dest, opts) => {
+export default (src, opts) => {
 	opts = Object.assign({
 		base: config.dirs.production,
 		newLine: '\n\n',
@@ -45,24 +45,17 @@ module.exports = (src, dest, opts) => {
 	return gulp.src(src)
 		.pipe(plumber())
 		.pipe(lec())
-		.pipe(
-			useref(
-				opts,
-				// TODO: Temporarily removed sourcempaping due to libsass issue
-				// lazypipe().pipe(sourcemaps.init, { loadMaps: true })
-			)
-		)
+		.pipe(useref({}, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
 		.pipe(gulpif('*.js', uglify(uglifyOpts)))
 		.pipe(gulpif('*.js', header(banner, { pkg: pkg })))
 		.pipe(gulpif('*.css', cleanCss()))
 		.pipe(gulpif('!**/*.html', rev()))
 		.pipe(revReplace())
-		// TODO: Temporarily removed sourcempaping due to libsass issue
-		// .pipe(sourcemaps.write('./'))
+		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest((file) => {
 			const dirs = file.relative.match(/\.\.\//g) || [];
 			const path = dirs.reduce((str) => str + '/fakepath', '');
 
 			return config.dirs.production + path;
 		}));
-};
+}

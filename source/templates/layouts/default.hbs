@@ -11,6 +11,10 @@
 	<!-- build:css(./.tmp) styles/styles.min.css -->
 	<link rel="stylesheet" href="styles/style.css">
 	<!-- endbuild -->
+
+	<!-- build:js(./.tmp) scripts/head.min.js -->
+	<script src="scripts/head.entry.gen.js"></script>
+	<!-- endbuild -->
 </head>
 <body>
 	{{> body-gtm }}
@@ -25,12 +29,8 @@
 
 	</div>
 
-	<!-- build:js(./.tmp) scripts/vendor/jquery.min.js -->
-	<script src="scripts/vendor/jquery/jquery.js"></script>
-	<!-- endbuild -->
-
-	<!-- build:js(./.tmp) scripts/main.min.js -->
-	<script src="scripts/main.js"></script>
+	<!-- build:js(./.tmp) scripts/body.min.js -->
+	<script src="scripts/body.entry.gen.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

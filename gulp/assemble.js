@@ -1,11 +1,10 @@
 import assemble from 'assemble';
 import config from './config';
-import connect from 'gulp-connect';
 import extname from 'gulp-extname';
 import markdown from 'helper-markdown';
 import plumber from 'gulp-plumber';
 
-module.exports = (src, dest, srcOpts = {}, assembleOpts = {}) => {
+export default (src, dest, srcOpts = {}, assembleOpts = {}) => {
 	assembleOpts = Object.assign({
 		data: `${config.dirs.src}/data/${config.files.data}`,
 		layouts: `${config.dirs.src}/templates/layouts/${config.files.templates}`,

@@ -9,7 +9,8 @@
 		"versionedContainers": "**/*.{css,html,js}",
 		"scss": "**/*.scss",
 		"scssImports": "**/_*.scss",
-		"templates": "**/*.{hbs,md}"
+		"templates": "**/*.{hbs,md}",
+		"webpack": "**/*.entry.ts"
 	},
 	"dirs": {
 		"src": "source",

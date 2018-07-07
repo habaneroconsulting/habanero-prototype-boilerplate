@@ -1,10 +1,8 @@
-import del from 'del';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import revReplace from 'gulp-rev-replace';
 
-module.exports = (src, dest, opts) => {
-	const filepath = `${dest}/rev-manifest.json`;
+export default (src, dest, opts) => {
 	const manifest = gulp.src(`${dest}/rev-manifest.json`);
 
 	opts = Object.assign({
@@ -15,4 +13,4 @@ module.exports = (src, dest, opts) => {
 		.pipe(plumber())
 		.pipe(revReplace(opts))
 		.pipe(gulp.dest(dest));
-};
+}

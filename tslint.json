@@ -1,17 +1,91 @@
 {
-	"extends": "tslint:recommended",
+	"formatter": "verbose",
 	"rules": {
-		"indent": [
+		"class-name": true,
+		"comment-format": [ false, "check-space" ],
+		"curly": true,
+		"forin": true,
+		"indent": [ true, "tabs" ],
+		"interface-name": [ true, "always-prefix" ],
+		"jsdoc-format": true,
+		"label-position": true,
+		"max-line-length": [ false, 140 ],
+		"member-access": false,
+		"member-ordering": [
 			true,
-			"tabs"
+			"public-before-private",
+			"static-before-instance",
+			"variables-before-functions"
 		],
+		"no-angle-bracket-type-assertion": true,
+		"no-arg": true,
+		"no-bitwise": true,
+		"no-conditional-assignment": true,
 		"no-console": [
-			false
-		],
-		"prefer-for-of": false,
-		"quotemark": [
 			true,
-			"single"
+			"debug",
+			"info",
+			"time",
+			"timeEnd",
+			"trace"
+		],
+		"no-construct": true,
+		"no-debugger": true,
+		"no-default-export": false,
+		"no-duplicate-variable": true,
+		"no-empty": false,
+		"no-eval": true,
+		"no-inferrable-types": [ true, "ignore-params" ],
+		"no-shadowed-variable": true,
+		"no-sparse-arrays": true,
+		"no-string-literal": false,
+		"no-switch-case-fall-through": false,
+		"no-trailing-whitespace": true,
+		"no-unused-expression": true,
+		"no-var-keyword": true,
+		"object-literal-sort-keys": false,
+		"one-line": [
+			true,
+			"check-open-brace",
+			"check-catch",
+			"check-else",
+			"check-finally",
+			"check-whitespace"
+		],
+		"prefer-const": true,
+		"quotemark": [ true, "single", "avoid-escape", "jsx-double" ],
+		"radix": true,
+		"semicolon": [ true, "always" ],
+		"trailing-comma": [
+			true,
+			{
+				"singleline": "never",
+				"multiline": "never"
+			}
+		],
+		"triple-equals": [ true, "allow-null-check" ],
+		"typedef-whitespace": [
+			true,
+			{
+				"call-signature": "nospace",
+				"index-signature": "nospace",
+				"parameter": "nospace",
+				"property-declaration": "nospace",
+				"variable-declaration": "nospace"
+			}
+		],
+		"use-isnan": true,
+		"variable-name": [
+			false,
+			"check-format"
+		],
+		"whitespace": [
+			true,
+			"check-branch",
+			"check-decl",
+			"check-operator",
+			"check-separator",
+			"check-type"
 		]
 	}
 }

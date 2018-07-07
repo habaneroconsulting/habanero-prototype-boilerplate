@@ -8,7 +8,7 @@ import postcss from 'gulp-postcss';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 
-module.exports = (src, dest, opts) => {
+export default (src, dest, opts) => {
 	opts = Object.assign({}, opts);
 
 	const processors = [
@@ -25,4 +25,4 @@ module.exports = (src, dest, opts) => {
 		.pipe(postcss(processors))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(dest));
-};
+}

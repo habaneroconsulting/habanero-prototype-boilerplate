@@ -1,7 +1,7 @@
 import del from 'del';
 import gutil from 'gulp-util';
 
-module.exports = (src, opts) => {
+export default (src, opts) => {
 	opts = Object.assign({}, opts);
 
 	return del(src, opts)
@@ -12,4 +12,4 @@ module.exports = (src, opts) => {
 				gutil.log(`No files to delete.`);
 			}
 		});
-};
+}

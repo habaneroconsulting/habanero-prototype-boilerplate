@@ -1,7 +1,7 @@
 import connect from 'gulp-connect';
 import open from 'open';
 
-module.exports = (src, opts) => {
+export default (src, opts) => {
 	opts = Object.assign({
 		root: src,
 		port: 8000,
@@ -10,4 +10,4 @@ module.exports = (src, opts) => {
 
 	connect.server(opts);
 	open(`http://localhost:${opts.port}`);
-};
+}

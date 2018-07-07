@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import htmlmin from 'gulp-htmlmin';
 import plumber from 'gulp-plumber';
 
-module.exports = (src, dest, opts) => {
+export default (src, dest, opts) => {
 	opts = Object.assign({
 		collapseWhitespace: true
 	}, opts);
@@ -11,4 +11,4 @@ module.exports = (src, dest, opts) => {
 		.pipe(plumber())
 		.pipe(htmlmin(opts))
 		.pipe(gulp.dest(dest));
-};
+}

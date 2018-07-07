@@ -1,5 +1,3 @@
-'use strict';
-
 import assemble from './gulp/assemble';
 import clean from './gulp/clean';
 import config from './gulp/config';
@@ -7,18 +5,17 @@ import connect from './gulp/connect';
 import copy from './gulp/copy';
 import ghpages from './gulp/gh-pages';
 import gulp from 'gulp';
-import gutil from 'gulp-util';
 import htmlmin from './gulp/htmlmin';
 import inline from './gulp/inline';
 import replace from './gulp/replace';
 import rev from './gulp/rev';
 import sasslint from './gulp/sasslint';
-import sequence from 'gulp-sequence';
+import sequence from 'run-sequence';
 import styles from './gulp/styles';
 import tslint from './gulp/tslint';
-import typescript from './gulp/typescript';
 import useref from './gulp/useref';
 import watch from './gulp/watch';
+import webpack from './gulp/webpack';
 
 /**
  * Cleaning temporary and build folders.
@@ -85,9 +82,9 @@ gulp.task('styles:build', () =>
 	)
 );
 
-gulp.task('typescript:build', () => {
-	typescript(`${config.dirs.src}/${config.files.ts}`, config.dirs.build);
-});
+gulp.task('webpack:build', () =>
+	webpack(`${config.files.webpack}`, `${config.dirs.build}/scripts`)
+);
 
 gulp.task('copy:build', () =>
 	copy(config.copy.build, config.dirs.build, {
@@ -98,10 +95,13 @@ gulp.task('copy:build', () =>
 
 gulp.task(
 	'build',
-	sequence(
-		['lint', 'clean'],
-		['assemble:build', 'styles:build', 'typescript:build', 'copy:build']
-	)
+	(done) => {
+		sequence(
+			['lint', 'clean'],
+			['assemble:build', 'styles:build', 'webpack:build', 'copy:build'],
+			done
+		)
+	}
 );
 
 
@@ -130,13 +130,13 @@ gulp.task('css:production', () =>
 	copy(`${config.dirs.src}/${config.files.css}`, config.dirs.temp)
 );
 
-gulp.task('typescript:production', () => {
-	typescript(`${config.dirs.src}/${config.files.ts}`, config.dirs.temp);
-});
+gulp.task('webpack:production', () =>
+	webpack(`${config.files.webpack}`, `${config.dirs.temp}/scripts`)
+);
 
-gulp.task('javascript:production', () => {
-	copy(`${config.dirs.src}/${config.files.js}`, config.dirs.temp);
-});
+gulp.task('javascript:production', () =>
+	copy(`${config.dirs.src}/${config.files.js}`, config.dirs.temp)
+);
 
 gulp.task('copy:production', () =>
 	copy(config.copy.production, config.dirs.production, {
@@ -182,24 +182,27 @@ gulp.task('htmlmin:production', () =>
 
 gulp.task(
 	'production',
-	sequence(
-		['lint', 'clean'],
-		[
-			'assemble:production',
-			'styles:production',
-			'css:production',
-			'typescript:production',
-			'javascript:production',
-			'copy:production'
-		],
-		'inline:production',
-		'useref:production',
-		'rev:production',
-		'replace:production',
-		'replace:production',
-		'htmlmin:production',
-		'clean:temp'
-	)
+	(done) => {
+		sequence(
+			['lint', 'clean'],
+			[
+				'assemble:production',
+				'styles:production',
+				'css:production',
+				'webpack:production',
+				'javascript:production',
+				'copy:production'
+			],
+			'inline:production',
+			'useref:production',
+			'rev:production',
+			'replace:production',
+			'replace:production',
+			'htmlmin:production',
+			'clean:temp',
+			done
+		)
+	}
 );
 
 
@@ -207,7 +210,7 @@ gulp.task(
  * Connect.
  */
 
-gulp.task('connect:build', ['build'], () => connect(config.dirs.build));
+gulp.task('connect:build', () => connect(config.dirs.build));
 gulp.task('connect:production', ['production'], () =>
 	connect(config.dirs.production, { livereload: false })
 );
@@ -217,7 +220,8 @@ gulp.task('connect:production', ['production'], () =>
  * Watch.
  */
 
-gulp.task('serve', ['connect:build'], watch);
+gulp.task('watch', watch);
+gulp.task('serve', (done) => sequence('build', 'connect:build', 'watch', done));
 
 
 /**
@@ -233,4 +237,4 @@ gulp.task('deploy', ['production'], () =>
  * Testing.
  */
 
-gulp.task('test', sequence('lint', 'build', 'production', 'clean'));
+gulp.task('test', (done) => sequence('lint', 'build', 'production', 'clean', done));
