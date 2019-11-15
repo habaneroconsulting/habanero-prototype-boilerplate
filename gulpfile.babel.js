@@ -112,10 +112,6 @@ gulp.task('styles:production', () =>
 	)
 );
 
-gulp.task('css:production', () =>
-	copy(`${config.dirs.src}/${config.files.css}`, config.dirs.temp)
-);
-
 gulp.task('webpack:production', () =>
 	webpack(`${config.files.webpack}`, `${config.dirs.temp}/scripts`)
 );
@@ -173,7 +169,6 @@ gulp.task(
 		'clean',
 		'assemble:production',
 		'styles:production',
-		'css:production',
 		'webpack:production',
 		'javascript:production',
 		'copy:production',

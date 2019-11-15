@@ -13,7 +13,7 @@ export default (src, dest, opts) => {
 
 	const processors = [
 		pixrem(),
-		autoprefixer({ browsers: ['last 2 versions'] }),
+		autoprefixer(),
 		assets({ loadPaths: ['source/styles'] }),
 		cssnano({ safe: true })
 	];
